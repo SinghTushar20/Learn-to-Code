@@ -1,0 +1,4 @@
+* Write a program to print the cubes of all numbers in range 10 to 20.
+* Write a program to print the 2 digit factors of a number 4 digit number.
+* Write a program to give 3 chances to the user to guess an arbitrary number.
+*Count the digits of a number

@@ -1,0 +1,39 @@
+Functions are a piece of program code which performs a specific task.
+These are useful for procedural programming or modular programming.
+Collection of functions is called library.
+Every C++ function has a main function, the entry point of the program for what we want.
+
+We can break program into manageable, reusable pieces then piece wise development of
+code can be distributed among teams and then merged into single program in the end, main integrating them directly or indirectly. Also memory usage is more efficient here. This is modular programming achieved using functions.
+
+DECLARING A FUNCTION 
+    return type function_name(parameters list);
+
+    A function can return atmost 1 value and not more than 1. Can take multiple inputs but gives 1 output.
+    Functions not returning any values have type void.
+    Rules for giving function names are same as variable names.
+
+    We should avoid doing cin or cout inside the function as it is a bad function practice. Function shouldn't interact.
+
+    How this works inside main memory ? 
+    Memory has 3 sections : Code section, stack and heap.
+    Code section will have all the functions inside it. Like Global execution context.
+    Machine code of functions is not copied into main that is a wrong belief. Machine code stays separate as per function.
+    Program we are running, program is loaded inside the code section.
+    Whenever a function is called the memory for all the variables used in function is created inside the stack and when the function ends then all that memory is cleared automatically. If function allocated some memory into the heap, then that memory won't be deallocated on its own rather function should release it.
+
+
+Function Overloading:
+    Writing more than one function with the same name but different parameters.
+
+    There would be name conflict in the case when return type is different but name of function along with parameters type and # of parameters are same.
+    eg.
+        int max(int,int)
+        float max(int,int)
+        NOTE: The above is not function overloading. For operator overloading either # of parameters or type of parameters should be different.
+
+    C++ compiler can differentiate between 2 functions of same names based on parameters type and # of parameters being passed.
+
+    2 functions with same name and same # of parameters can be different too if data type of parameters is different.
+    
+    Benefit here is that if # or type of parameters is different then we don't need to think of new names coz the function is same only parameters type or # is different.

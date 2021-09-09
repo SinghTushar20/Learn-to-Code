@@ -1,6 +1,6 @@
 ## Let's Learn to Learn first because you already know the content of this repo is all CSE.
 
-## 0 The Principles
+### 0. The Principles
 1. `Learning vs. Winning The System` Focus on long-term learning and doing good work, not on how to ace the test. [The lesson to unlearn](http://paulgraham.com/lesson.html)
 1. Define your measure of success, you need to have the `drive and persistence`
 1. `Embrace the Obstacle`: you’ll be bad first until you get good, 

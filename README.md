@@ -1,4 +1,4 @@
-## Let's Learn to Learn first because you what the content of this repo is CSE.
+## Let's Learn to Learn first because you already know the content of this repo is all CSE.
 
 ## 0 The Principles
 1. `Learning vs. Winning The System` Focus on long-term learning and doing good work, not on how to ace the test. [The lesson to unlearn](http://paulgraham.com/lesson.html)

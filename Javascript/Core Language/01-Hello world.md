@@ -79,3 +79,59 @@
   - The exact location of the modal window is determined by the browser. Usually, it’s in the center.
   - The exact look of the window also depends on the browser. We can’t modify it.
 - `alert` is for output, `prompt` is for input and `confirm` is for confirmation.
+
+  
+## 6
+- Most of the time, operators and functions automatically convert the values given to them to the right type, this is called type coersion.
+- We can also change the type of value explicitly this is called type conversion.
+  - The three most widely used type conversions are to string, to number, and to boolean.
+    - `String(value)` This is string conversion, the conversion to string is usually obvious for primitive values.
+    - `Number(value)` There are some rules in this conversion
+      - `undefined` become `NaN`
+      - `null` become `0`
+      - `true/false` become `1/0`
+      - `string` is read “as is”, whitespaces from both sides are ignored. An `empty string` becomes `0`. An `error` gives `NaN`.
+    - `Boolean(value)` 
+      - `0`, `null`, `undefined`, `NaN`, `""` become `false` (falsy value), any other value is `true`.
+      - `"0"` and space-only strings like `" "` are `true` as a boolean
+
+
+## 7
+- Operand and operator, operator can be unary, binary, ternary etc.
+- Arithematic Operators are: `+` `-` `*` `/` `%` `**`.
+- String concatenation: the plus operator + sums numbers but, if the binary + is applied to strings, it merges (concatenates) them.
+  > Note that if any of the operands is a string, then the other one is converted to a string too.
+- The binary `+` is the only operator that supports strings in such a way. Other arithmetic operators work only with numbers and always convert their operands to numbers.
+- unary `+` does the same thing as Number(...), but is shorter.
+  ```javascript
+  // No effect on numbers
+  let x = 1;
+  alert( +x ); // 1
+
+  let y = -2;
+  alert( +y ); // -2
+
+  // Converts non-numbers
+  alert( +true ); // 1
+  alert( +"" );   // 0
+  ```
+- **Remember about precedence and associativity**
+- An assignment `=` operator has a very low priority of 3. It assigns r-value to l-value(address) and return the assigned value.
+> All operators in JavaScript return a value.
+- An interesting feature is the ability to chain assignments.
+  ```javascript
+  a = b = c = 10;
+  ```
+  - This assign 10 to c then return 10 which is assigned to b then the returned 10 is assigned to a.
+- Other operators are `+=` `-=` `*=` `/=` `%=` `**=` `++` `--`
+- Increment/decrement can only be applied to variables. Trying to use it on a value like 5++ will give an error.
+- The operators ++/-- can be used inside expressions as well. Their precedence is higher than most other arithmetical operations.
+- Bitwise Operator: Bitwise operators treat arguments as 32-bit integer numbers and work on the level of their binary representation.
+  - `&` `|` `~` `^` `>>` `<<` `>>>` 
+- the comma operator `,` has very low precedence, lower than `=` it’s used to write shorter code.
+  - The comma operator allows us to evaluate several expressions, dividing them with a comma `,`. Each of them is evaluated but only the result of the last one is returned.
+  - Comma is a very sensitive operator so while using always make sure you use parenthesis, without parenthesis it gives the first and ignores the rest
+    ```javascript
+    alert(a=1,b=4,c=a*b)  \\1 no parenthesis so return a=1 and ignored rest.
+    alert((a=1,b=4,c=a*b))  \\4 returned value of (a=1,b=4,c=a*b) which is c=a*b (the last result)
+    ```

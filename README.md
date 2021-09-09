@@ -21,3 +21,13 @@
 1. monitor your happiness factors, identity 5 things that make me happy.
 1. `Productivity time`: find the time where you are most productive
 1. `Self-learning paradigm`: find your identity as a self-learner
+
+
+### 1. Some Lies
+1. `Follow your passion` is terrible advice - you don’t need to be passionate to start to become good at something and enjoy improving your craft (craftman’s mindset).
+   - Shift from passion to intrinsic motivation.
+   - Aim for creativity, control and impact instead
+1. `You can avoid risk`, you have to get out of your comfort zone, you can’t play it safe all the time, view risks as challenges and learn from failures.
+1. `Trust this one person` find various teachers and opinions, unique perspectives, combine different sources and form your own opinion
+1. `The 10,000 Hours Rule` (become a master by practicing more) it's not always true.
+   - practice smart, not hard (efficiency)

@@ -62,8 +62,20 @@
   - The result of typeof null is "object". That’s an officially recognized error in typeof behavior, coming from the early days of JavaScript and kept for compatibility. Definitely, null is not an object. It is a special value with a separate type of its own.
   - There’s no special “function” type in JavaScript. Functions belong to the object type. But typeof treats them differently, returning "function". 
 - Special numeric values
-  - Infinity represents the mathematical Infinity ∞. It is a special value that’s greater than any number.
-  - NaN represents a computational error. It is a result of an incorrect or an undefined mathematical operation. NaN is sticky. Any further operation on NaN returns NaN.
-  - -Infinity, is a special value that’s smaller than any number.
+  - `Infinity` represents the mathematical Infinity ∞. It is a special value that’s greater than any number.
+  - `NaN` represents a computational error. It is a result of an incorrect or an undefined mathematical operation. NaN is sticky. Any further operation on NaN returns NaN.
+  - `-Infinity` is a special value that’s smaller than any number.
 - Doing maths is “safe” in JavaScript. We can do anything: divide by zero, treat non-numeric strings as numbers, etc. The script will never stop with a fatal error (“die”). At worst, we’ll get NaN as the result.
 - JS don't have characters.
+  
+  
+## 5
+- Tools to interact with user through browser:
+  - `alert(mgs)` It shows a message and waits for the user to press “OK”.
+  - `prompt(title, default)` It shows a modal window with a text message, an input field for the visitor, and the buttons OK(return input)/Cancel(return null).
+    - prompt accept 2 arguments: The text to show the visitor, and an optional second parameter, the initial value for the input field.
+  - `confirm()` The function confirm shows a modal window with a question and two buttons: OK(return true) and Cancel(return false).
+- Limitations with these interaction:
+  - The exact location of the modal window is determined by the browser. Usually, it’s in the center.
+  - The exact look of the window also depends on the browser. We can’t modify it.
+- `alert` is for output, `prompt` is for input and `confirm` is for confirmation.

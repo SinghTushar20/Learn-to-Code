@@ -72,6 +72,7 @@
 ## 5
 - Tools to interact with user through browser:
   - `alert(mgs)` It shows a message and waits for the user to press “OK”.
+    - The call to alert does not return a value. Or, in other words, it returns undefined.
   - `prompt(title, default)` It shows a modal window with a text message, an input field for the visitor, and the buttons OK(return input)/Cancel(return null).
     - prompt accept 2 arguments: The text to show the visitor, and an optional second parameter, the initial value for the input field.
   - `confirm()` The function confirm shows a modal window with a question and two buttons: OK(return true) and Cancel(return false).
@@ -135,3 +136,50 @@
     alert(a=1,b=4,c=a*b)  \\1 no parenthesis so return a=1 and ignored rest.
     alert((a=1,b=4,c=a*b))  \\4 returned value of (a=1,b=4,c=a*b) which is c=a*b (the last result)
     ```
+
+  
+## 8
+- Comparision operators `>` `<` `>=` `<=` `==` `===` `!=`, they return either `true` or `false`
+- `String Comparisions`, the algorithm to compare two strings is simple:
+  - Compare the first character of both strings.
+  - If the first character from the first string is greater (or less) than the other string’s, then the first string is greater (or less) than the second. We’re done.
+  - Otherwise, if both strings’ first characters are the same, compare the second characters the same way.
+  - Repeat until the end of either string.
+  - If both strings end at the same length and all characters are equal, then they are equal. Otherwise, the longer string is greater.
+- The comparison algorithm given above is roughly equivalent to the one used in dictionaries or phone books, but it’s not exactly the same. It is the `unicode order`.
+- When comparing values of different types, JavaScript converts the values to numbers.
+- `==` VS `===`
+  - `==` do type coersion on encountering different values while `===` do strict check
+- For maths and other comparisons `<` `>` `<=` `>=` null/undefined are converted to numbers: 
+  - null becomes 0, while undefined becomes NaN.
+- A Strange CASE of comparision:
+  ```javascript
+  alert( null > 0 );  // (1) false
+  alert( null == 0 ); // (2) false
+  alert( null >= 0 ); // (3) true
+  ```
+  - The results are simple to evaluate, > < >= <= convert them into number but in case of ==, undefined and null equal each other and don’t equal anything else.
+  - Remember with undefined in upper example it will be false all the time as undefined convert to NaN and NaN is always false and with == undefined only equal null.
+
+                                                   
+## 9
+- Conditional branching can be done using `if-else if-else` ladder or `?:` ternary operator.
+- `if-else` is conditional execution and `?:` is conditional assignment.
+- We can chain multiple ternary operators condition under conditions.
+
+
+## 10
+- Logical operators are `&&` `||` `!` `??`.
+- Remember about short circuiting.
+- Precedence of AND `&&` is higher than OR `||`
+- Although && and || act as replacement of if but, don’t replace if with || or &&.
+- `!`, converts the operand to boolean type then returns the inverse value.
+- `??` is null coalescing operator is just the OR operator but it only consider `undefined` and `null` as falsy value.
+  - `||` returns the first truthy value.
+  - `??` returns the first defined value.
+- `??` has even lower precedence than `||`.
+- Due to safety reasons, JavaScript forbids using ?? together with && and || operators, unless the precedence is explicitly specified with parentheses otherwise it will throw error.
+                                                   
+                                                   
+                                        
+                                       

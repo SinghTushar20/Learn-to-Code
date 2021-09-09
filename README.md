@@ -54,7 +54,7 @@
 
 
 ### 2. The Pillars 
-1. `Everything is a Game`
+1. `Everything is a Game`: Belief in growth over a fixed mindset.
    - Adopt a growth mindset: everything is trainable. Seek out challenges to grow.
    - If you believe you have control over your life (“locus of control”), you realize that you can it’s in your hand to improve your skills instead of blaming undesirable results on external factors.
  

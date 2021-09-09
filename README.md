@@ -31,3 +31,19 @@
 1. `Trust this one person` find various teachers and opinions, unique perspectives, combine different sources and form your own opinion
 1. `The 10,000 Hours Rule` (become a master by practicing more) it's not always true.
    - practice smart, not hard (efficiency)
+
+
+### 2. The Pillars 
+1. Everything is a Game
+   - Adopt a growth mindset: everything is trainable. Seek out challenges to grow.
+   - If you believe you have control over your life (“locus of control”), you realize that you can it’s in your hand to improve your skills instead of blaming undesirable results on external factors.
+2. The Feynman Technique: To understand something, you need to be able to explain in SIMPLE TERMS. You’ll also be able to identify gaps in your knowledge.
+   - Choose a concept you want to learn about
+   - Pretend you are teaching it to a student in grade 6
+   - Identify gaps in your explanation; Go back to the source material, to better understand it.
+   - Review and simplify
+
+3. Trunk-Based Knowledge: Focus on fundamentals coz they are not gonna change (learn the fundamentals)
+
+4. Efficiency Trumps Grit: Manage your time and energy, be efficient, instead of hustling all the time.
+   - Work Smart, remember that time is limited.

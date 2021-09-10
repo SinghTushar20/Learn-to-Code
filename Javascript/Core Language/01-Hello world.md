@@ -204,9 +204,50 @@
   - `break <labelName>` or `continue <labelName>`.
   - Labels do not allow us to jump into an arbitrary place in the code.
   - `break <lablename>` looks upwards for the <lablename> and breaks out of that loop.
-                                                   
-                                                   
-                                                   
-                                                   
-                                        
-                                       
+
+
+## 12
+- The `switch` has one or more case blocks and an optional default and can replace multiple if checks.
+- If there is no break then the execution continues with the next case without any checks, so we can say break are must but optional with default as it's the last check.
+- Any `expression` can be a switch/case argument.
+  ```javascript
+  //grouped two cases
+  case 3:
+  case 5:
+    alert('Wrong!');
+    alert("Why don't you take a math class?");
+    break;
+  ```
+- In switch the equality check is always strict. 
+
+
+## 13
+- To create a function we can use a function declaration, function expression or arrow function.
+  ```javascript
+  // Function Declaration
+  function name(parameter1, parameter2, ... parameterN) {
+    ...body...
+  }
+
+  // Function Expression
+  let varname = function(parameter1, parameter2, ... parameterN) {
+    ...body...
+  };  
+  ```
+- `global` and `local` variables, It’s a good practice to minimize the use of global variables. Modern code has few or no globals.
+- When a value is passed as a function parameter, it’s also called an argument.
+  - A `parameter` is the variable listed inside the parentheses in the function declaration `it’s a declaration time term`.
+  - An `argument` is the value that is passed to the function when it is called `it’s a call time term`.
+- If a function is called, but an argument is not provided, then the corresponding value becomes undefined, so to prevent that from happening we use default values.
+- `return` control the flow of function, A function with an empty return or without it returns undefined.
+- Functions should be short and do exactly one thing.
+- Values passed to a function as parameters are copied to its local variables, `pass by value`.
+- A function is a value, so we can deal with it as a value.
+- Function Expression have a semicolon ; at the end.
+- A Function Expression is created when the execution reaches it and is usable only from that moment.
+- Function Declarations are processed before the code block is executed. They are visible everywhere in the block. 
+  - But in strict mode when a Function Declaration is within a code block, it’s visible everywhere inside that block. But not outside of it.
+- Arrow functions are handy for one-liners. They come in two flavors:
+  - `(...args) => expression` – the right side is an expression: the function evaluates it and returns the result.
+  - `(...args) => { body }` – brackets allow us to write multiple statements inside the function, but we need an explicit return to return something.
+  - Arrow functions are stored in a variable.                                                                     

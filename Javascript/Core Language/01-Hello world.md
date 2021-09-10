@@ -163,8 +163,11 @@
 
                                                    
 ## 9
-- Conditional branching can be done using `if-else if-else` ladder or `?:` ternary operator.
-- `if-else` is conditional execution and `?:` is conditional assignment.
+- Conditional branching can be done using `if-else if-else` ladder or `?` ternary operator.
+- Curly braces are not required for a single-line body
+- `if-else` is conditional execution and `?` is conditional assignment.
+  - Syntax constructs that are not expressions cannot be used with the ternary operator ?, so no `break` and `continue`.
+  - Reason not to use the question mark operator ? instead of if.
 - We can chain multiple ternary operators condition under conditions.
 
 
@@ -179,6 +182,30 @@
   - `??` returns the first defined value.
 - `??` has even lower precedence than `||`.
 - Due to safety reasons, JavaScript forbids using ?? together with && and || operators, unless the precedence is explicitly specified with parentheses otherwise it will throw error.
+
+
+## 11
+- Loops are ways to repeat statements multiple times.
+  - while
+  - do while 
+  - for 
+    - begin executes once, and then it iterates: after each condition test, body and step are executed.
+    - Any part of for can be skipped.
+- Curly braces are not required for a single-line body
+- To control loop we use `break` and `continue`.
+- Syntax constructs that are not expressions cannot be used with the ternary operator ?, so no `break` and `continue`.
+- break/continue support labels before the loop. A `label` is the only way for break/continue to escape a nested loop to go to an outer one.
+  - A label is an identifier with a colon before a loop.
+    ```javascript
+    labelName: for (...) {
+      ...
+    }
+    ```
+  - `break <labelName>` or `continue <labelName>`.
+  - Labels do not allow us to jump into an arbitrary place in the code.
+  - `break <lablename>` looks upwards for the <lablename> and breaks out of that loop.
+                                                   
+                                                   
                                                    
                                                    
                                         

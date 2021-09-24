@@ -48,3 +48,19 @@
   - When an object variable is copied, the reference is copied, but the object itself is not duplicated.
 - Two objects are equal only if they are the same object.
   - For comparisons like obj1 > obj2 or for a comparison against a primitive obj == 5, `objects are converted to primitives`.
+- Creating a real copy (independent copy)
+  - Loop through the object and start copying it's prop in a new empty object.
+  - Using `Object.assign(dest, src1, src2, src3...)`
+    - The first argument dest is a target object.
+    - Rest arguments src1, ..., srcN (can be as many as needed) are source objects.
+    - It copies the properties of all source objects src1, ..., srcN into the target dest. In other words, properties of all arguments starting from the second are copied into the first object.
+    - The call returns dest.
+  - We can also use spread operator.
+    - ```javascript
+      clone = {...user}
+      ```
+- If we have Object inside object then things get little different then, we should use a cloning loop that examines each value of user[key] and, if it’s an object, then replicate its structure as well. That is called a `deep cloning`.
+- Const objects can be modified. As constant make the path constant so we can't reassign a new object be we can modify the prop of the object.
+- To make a `real copy` (a clone):
+  - we can use `Object.assign()` for the so-called `shallow copy`, but here nested objects are copied by reference.
+  - or a `deep cloning` function, such as `_.cloneDeep(obj)` from loadash library.

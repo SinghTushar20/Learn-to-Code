@@ -64,3 +64,22 @@
 - To make a `real copy` (a clone):
   - we can use `Object.assign()` for the so-called `shallow copy`, but here nested objects are copied by reference.
   - or a `deep cloning` function, such as `_.cloneDeep(obj)` from loadash library.
+
+
+## 2
+- Memory management in JavaScript is performed automatically and invisibly to us.
+- The main concept of memory management in JavaScript is reachability.
+  - `reachable` values are those that are accessible or usable somehow. They are guaranteed to be stored in memory.
+    - There’s a base set of inherently reachable values  called `roots`, that cannot be deleted for obvious reasons.
+    - Any other value is considered reachable if it’s reachable from a root by a reference or by a chain of references.
+  - There’s a background process in the JavaScript engine that is called `garbage collector`. It monitors all objects and removes those that have become unreachable.
+  - If there’s no way to access a reachable, no references to it(reference count become 0). Garbage collector will junk the data and free the memory.
+- The basic garbage collection algorithm is called `mark-and-sweep`.
+  - The garbage collector takes roots and “marks” (remembers) them.
+  - Then it visits them and “marks” all references from them.
+  - Then it visits marked objects and marks their references. All visited objects are remembered, so as not to visit the same object twice in the future, and repeat so on until every reachable (from the roots) references are visited.
+  - All objects except marked ones are removed.
+  - That’s the concept of how garbage collection works. JavaScript engines apply many optimizations to make it run faster and not affect the execution, different engines implement different tweaks and techniques.
+- Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole, `unreahable island`.
+
+

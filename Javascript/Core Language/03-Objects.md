@@ -83,3 +83,13 @@
 - Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole, `unreahable island`.
 
 
+## 3
+- A function that is a property of an object is called its method.
+- When we write our code using objects to represent entities, that’s called `object-oriented programming`.
+- To access the object, a method can use the `this` keyword.
+- In JavaScript, keyword this behaves unlike most other programming languages. It can be used in any function, even if it’s not a method of an object.
+  - The value of `this` is **evaluated during the run-time**, depending on the context.
+  - Calling without an object: `this == undefined`, In non-strict mode the value of this in such case will be the `global object(windows in browser)`.
+  - We can also bound `this` of a function to something using `bind()`, `call()`, `apply()` functions.
+- Arrow functions are special: they don’t have their “own” this. If we reference this from such a function, it’s taken from the outer “normal” function.
+

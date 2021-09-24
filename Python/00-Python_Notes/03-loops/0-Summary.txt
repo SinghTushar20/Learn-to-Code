@@ -24,3 +24,5 @@ Some important number tricks:
         number = number* 10 + last_digit 
     Eliminate the last digit of a number
         number = number // 10
+
+for-else loop is just a normal loop whose else block will run iff for loop ended properly i.e. without break. The loop can have break but if it ended due to break then else will not be executed.

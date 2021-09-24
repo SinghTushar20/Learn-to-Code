@@ -31,7 +31,8 @@
 - A notable feature of objects in JavaScript, compared to many other languages, is that it’s `possible to access any property`. There will be no error if the property doesn’t exist, it will just return `undefined`.
 - `in` operator return a boolean value and can be used with objects.
   - To walk over all keys of an object, there exists a special form of the loop: `for..in`.
-  - Objects are ordered in a special fashion, integer (strings with integers) properties are **sorted**, others appear in **creation order**.
+- Objects are ordered in a special fashion, integer (strings with integers) properties are **sorted**, others appear in **creation order**.
+  - The `integer property` term here means a string that can be converted to-and-from an integer without a change. So, “49” is an integer property name, because when it’s transformed to an integer number and back, it’s still the same. But “+49” and “1.2” are not.
 - Any type that is not primitive is Object.
   - There are many other kinds of objects in JavaScript:
     - `Array` to store ordered data collections,

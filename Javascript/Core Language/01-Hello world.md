@@ -1,5 +1,5 @@
 ## 0
-- We can use a <script> tag to add JavaScript code to a page.
+- We can use a `<script>` tag to add JavaScript code to a page.
 - The type and language attributes are not required.
 - A script in an external file can be inserted with `<script src="path/to/script.js"></script>`.
   
@@ -26,7 +26,7 @@
  
   
 ## 2
-- `use strict` or `use strict`, when used in any Execution context (function) of a script, that Execution context (function) of script works the “modern” way. If used in the top Global Execution context, the whole script work modern way.
+- `"use strict"` or `'use strict'`, when used in any Execution context (function) of a script, that Execution context (function) of script works the “modern” way. If used in the top Global Execution context, the whole script work modern way.
 - Scoping in JS is done using {}, except in case of objects.
 - Modern JavaScript supports “classes” and “modules” – advanced language structures (we’ll surely get to them), that enable use strict automatically. 
 

@@ -2,23 +2,26 @@
 - Object is the collection of properties `key-value pairs`.
 - An object can be created with figure brackets `{}` with an optional list of properties.
 - To remove a property, we can use `delete` operator.
+- We can also use multiword property names, but then they must be quoted.
   ```javascript
   let user = new Object(); // "object constructor" syntax
   let user = {};  // "object literal" syntax
   let user = {
     name: "John",
     age: 30,  
+    "likes birds": true,  // multiword property name must be quoted
   }
   ```
+- All keys type is string if they are not then they are automatically converted to string.
 - A “trailing” or “hanging” comma makes it easier to add/remove/move around properties, because all lines become alike.
 - We can access elements using either `dot notation` or `bracket notation`.
   - dot notation only take statements.
   - bracket notation can have statements or expressions, the variable key may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.
+  - Square brackets are much more powerful than the dot notation. They allow any property names and variables. But they are also more cumbersome to write.
 - We can use square brackets in an `object literal`, when creating an object. That’s called `computed properties`.
   - The meaning of a computed property is simple: [key] means that the property name should be taken from key.
-  - Square brackets are much more powerful than the dot notation. They allow any property names and variables. But they are also more cumbersome to write.
 - If properties have the same names as variables, then we can just use the var name. The use-case of making a property from a variable is so common, that there’s a special property value shorthand to make it shorter.
-- There are no limitations on property names. They can be any strings or symbols, other types are automatically converted to strings.
+- There are no limitations on property names(key). They can be any strings or symbols, other types are automatically converted to strings.
   - __proto__ can’t be set to a non-object value.
     ```javascript
     let obj = {};

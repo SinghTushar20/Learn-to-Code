@@ -1,5 +1,5 @@
 ## 0
-- Object is the collection of properties (key-value pairs).
+- Object is the collection of properties `key-value pairs`.
 - An object can be created with figure brackets `{}` with an optional list of properties.
 - To remove a property, we can use `delete` operator.
   ```javascript
@@ -29,11 +29,12 @@
 - `in` operator return a boolean value and can be used with objects.
   - To walk over all keys of an object, there exists a special form of the loop: `for..in`.
   - Objects are ordered in a special fashion, integer (strings with integers) properties are **sorted**, others appear in **creation order**.
-- There are many other kinds of objects in JavaScript:
-  - `Array` to store ordered data collections,
-  - `Date` to store the information about the date and time,
-  - `Error` to store the information about an error etc.
-  - These are objects not data types.
+- Any type that is not primitive is Object.
+  - There are many other kinds of objects in JavaScript:
+    - `Array` to store ordered data collections,
+    - `Date` to store the information about the date and time,
+    - `Error` to store the information about an error etc.
+    - These are objects not data types.
 - `typeof` is used to check the type of data type.
 
 

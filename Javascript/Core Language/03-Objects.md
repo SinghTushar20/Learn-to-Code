@@ -95,7 +95,8 @@
 
 
 ## 4
-- Constructor functions technically are regular functions.
+- We can use constructor functions to make multiple similar objects.
+- Constructor functions technically are regular functions(not arrow).
   - They are named with capital letter first.
   - They should be executed only with `new` operator.
   ```js
@@ -105,4 +106,29 @@
   }
   let user = new User("Jack");
   ```
-- 
+  - With `new`:
+    - A new empty object is created and assigned to `this`.
+    - The function body executes. Usually it modifies `this`, adds new properties to it.
+    - The value of `this` is returned. 
+- The main purpose of constructors is to implement reusable object creation code.
+- To check whether a function was called with new or without it, using a special `new.target` property. It will give undefined for regular calls and function body for ones called with new.
+- If there is a return statement, then the rule is simple:
+  - If return is called with an object, then the object is returned instead of this.
+  - If return is called with a primitive, it’s ignored afterall constructor return this.
+
+
+## 5
+- The optional chaining `?.` syntax has three forms:
+  - `obj?.prop` – returns `obj.prop` if obj exists, otherwise `undefined`. `?.`
+  - `obj?.[prop]` – returns `obj[prop]` if obj exists, otherwise `undefined`. `?.[]`
+  - `obj.method?.()` – calls `obj.method()` if obj.method exists, otherwise returns `undefined`. `?.()`
+- We can use `?.` for **reading and deleting**, but not writing
+
+## 6
+- JavaScript doesn’t exactly allow to customize how operators(operator overloading or dunger methods) work on objects.
+- We can fine-tune string and numeric conversion, using special object methods.
+- Objects are auto-converted to primitives, and then the operation is carried out over these primitives and results in a primitive value.
+  - All objects are `true` in a boolean context. There are only numeric and string conversions.
+  - The numeric conversion happens when we subtract objects or apply mathematical functions.
+  - As for the string conversion – it usually happens when we output an object like `alert(obj)` and in similar contexts.
+  - There are three variants of type conversion, they are called `hints` which are `string`, `number`, `default`(in rare cases when the operator is **not sure** what type to expect.).

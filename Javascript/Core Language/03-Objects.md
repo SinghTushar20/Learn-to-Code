@@ -93,3 +93,16 @@
   - We can also bound `this` of a function to something using `bind()`, `call()`, `apply()` functions.
 - Arrow functions are special: they don’t have their “own” this. If we reference this from such a function, it’s taken from the outer “normal” function.
 
+
+## 4
+- Constructor functions technically are regular functions.
+  - They are named with capital letter first.
+  - They should be executed only with `new` operator.
+  ```js
+  function User(name) {
+    this.name = name;
+    this.isAdmin = false;
+  }
+  let user = new User("Jack");
+  ```
+- 

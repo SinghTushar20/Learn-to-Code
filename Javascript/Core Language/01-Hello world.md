@@ -238,6 +238,9 @@
 - When a value is passed as a function parameter, it’s also called an argument.
   - A `parameter` is the variable listed inside the parentheses in the function declaration `it’s a declaration time term`.
   - An `argument` is the value that is passed to the function when it is called `it’s a call time term`.
+  - JS is a very forgiving language we can pass less argument, more argument or exact number of argument it won't throw error.
+    - If the arguments are less then asked then the rest will either take default(if given) or undefined.
+    - If given more arguments then we can access the rest of them from `argument` keyword.
 - If a function is called, but an argument is not provided, then the corresponding value becomes undefined, so to prevent that from happening we use default values.
 - `return` control the flow of function, A function with an empty return or without it returns undefined.
 - Functions should be short and do exactly one thing.

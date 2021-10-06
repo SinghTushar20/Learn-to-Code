@@ -11,7 +11,7 @@ NOTE:
     So address of l1 and l2 are different but the address of their elements are same
 
     == operator check if the elements are equal
-    is operator check if both identifiers points to the same address or NOTE
+    is operator check if both identifiers points to the same address or NOT
     eg.
         l1 == l2    // true
         l1 is l2    // false

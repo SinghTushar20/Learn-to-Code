@@ -16,7 +16,10 @@ Looping thorugh list:
 
 Searching:
     Linear
+    Sentinal
     Binary
+    Ternary
+    Fibonacci
 
 Sorting:
     Selection sort

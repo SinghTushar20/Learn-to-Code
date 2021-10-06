@@ -24,6 +24,6 @@ Working of import:
     when we import a module then it import all it's variable and functions as well as execute the entire py file/module.
 
 When working with a custom module sometimes we don't want specific things to get imported:
-    if__name__=="__main__"
+    if __name__ == "__main__"
         __name__ is a built-in variable that returns us the name of the module being used, if the module being used if the same module/py file then it return main otherwise(if used in other file as import) it's file name
     So anything under this if block will not be executed in case of import as it will return the py file name, generally we keep the executable code of a py file/module in this block if in case we have to import it in some other py file.

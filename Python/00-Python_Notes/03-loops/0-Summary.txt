@@ -9,7 +9,7 @@ Python provides 2 loops:
     NOTE: with loops come some important keywords and functions like:
         in
         not in
-        range(start,end,step)  // end is excluded, default start is 0
+        range(start,end,step)  // end is excluded in iteration, default start is 0
 
 Control statement
     break : To stop loop

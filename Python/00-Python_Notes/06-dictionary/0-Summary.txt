@@ -24,7 +24,7 @@ Persistant Dictionary
     -> create/open a dictionary with r/w support
 
     This is similar to file handling
-        -> Opening a store from dbm.open(filelocation,mode) // Store it in a variable, this will work as dict name.
+        -> Opening a store from dbm.open(filelocation, mode) // Store it in a variable, this will work as dict name.
         -> Closing the store from storeName.close()
         -> To print the value in readable format use .decode()
             eg. store[x].decode()   //  Give the value of x

@@ -29,7 +29,7 @@ int main()
     (*fp)(29, 21);       // Expected return 29 as called on max.
     max(29, 21);
     fp = min;
-    (*fp)(29, 21); // Expected return 21 as called on min now.
+    cout<<(*fp)(29, 21); // Expected return 21 as called on min now.
     return 0;
 }
 /*

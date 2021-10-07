@@ -29,7 +29,6 @@
 # age = my_dict["age"]
 
 
-
 # Raising exception
 
 # Using raise

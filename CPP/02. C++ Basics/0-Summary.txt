@@ -8,7 +8,7 @@ Size of different data types.
 Note : Number of bits each data type takes also depends on compiler and can change based on a system being 32-bit or 64-bit.
 
 
-Decrelation vs Defination: Declaration mean allocating the memory and symbol table entry, Defination mean assigning the value.
+Decleration vs Defination: Declaration mean allocating the memory and symbol table entry, Defination mean assigning the value.
 They are mostly done together.
 Literal is a direct value. eg. "Hello" is a String literal, 23 is a int literal etc.
 For integer type of variables we can assign a literal in decimal number system, octal or hexa and these type of ints, can be used in short, long, long long and even for char data type.
@@ -30,7 +30,7 @@ If you do next or increment after last number 127 or 360 degree you come back to
 
 Similarly if we are at x = -128 and we do x-- then we come back to 127.
 
-Cycling is done when the we try to exceed any data type's limit.
+Cycling is done when the we try to exceed any data type's limit (overflow).
 
 
 % works only on int and char type data and not for float.

@@ -6,7 +6,7 @@ There are 4 types of loops in C++ :
     do-while
     for(:)  //To itterate over items of a Collection directly
 
-If you have a number of loops to iterate then go for for loop, if you don't know then while or do-while loop.
+If you have a number of iteration then go for for loop, if you don't know then while or do-while loop.
 
 
 Infinite Loops

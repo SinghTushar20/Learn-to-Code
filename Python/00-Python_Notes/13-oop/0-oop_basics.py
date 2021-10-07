@@ -26,6 +26,8 @@ class Cat(Dog) :
 kitty = Cat("Angel", 8, 'green')
 kitty.speak()
 
+# Every method of Class except static method has a self which is provided automatically, this self contain the address of the object.
+ 
 # Overriding methods, we can override methods of parent class
 
 # Decorators used for special methods
@@ -39,7 +41,7 @@ kitty.speak()
 # anything with __ at start mean private just as a convention but just in case we don't use this by mistake python do name mangling meaning they change the name slightly
 #   eg. let say in a class A we have a variable __a then name mangling change the name to _A__a meanning it add __className at the start
 
-# How object search for objects: first they check if that is a instance var of the class then check if it is an instance var of any parent class if not then check if it is the class var of current class of not then check if it is class ver of the parent class if not it show error.
+# How object search for properties: first they check if that is a instance var of the class then check if it is an instance var of any parent class if not then check if it is the class var of current class if not then check if it is class ver of the parent class if not then it show error.
 # NOTE if the parent's constructor is overridden then it won't search for the instance var in parent class.
-# NOTE instance var are always present in __inti__ i.e.(constructor)
+# NOTE instance var are always present in __init__ i.e.(constructor)
 # NOTE super() is used to access the properties of parent class

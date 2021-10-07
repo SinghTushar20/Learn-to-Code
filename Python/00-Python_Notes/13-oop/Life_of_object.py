@@ -6,7 +6,7 @@
 class Person:
     #A special method that is auto invoked as object is created.
     #Initialize the object, put it in first state.
-    # Cnstructor
+    # Constructor
     def __init__(self, nm):
         self.age = 0
         self.name = nm #define an instance variable, one declaration per object

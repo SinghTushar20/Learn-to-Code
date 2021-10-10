@@ -1,7 +1,4 @@
-/*
-author : Anmol Tomer
-email : anmol3540@gmail.com
-*/
+
 #include <iostream>
 using namespace std;
 int main()

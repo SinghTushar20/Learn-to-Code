@@ -1,8 +1,4 @@
-/*
-author : Anmol Tomer
-email : anmol3540@gmail.com
 
-*/
 #include <iostream>
 int &fun(int &x) // Writing a function which returns the reference
 {

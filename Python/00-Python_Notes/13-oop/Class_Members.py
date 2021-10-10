@@ -8,7 +8,7 @@ class Cryptography:
     #They are defined once for the class, not for an object.
     #They are accessible using the class reference (Example: Cryptography.map)
     #They are defined on first use of the class and have a life equal to the life of the application.
-    map = {}
+    map = {}    #This is class variable as this is declared in class.
 
     #Methods that act on class data are class methods.
     #They dont require object for ivokation, rather they are called using class reference.

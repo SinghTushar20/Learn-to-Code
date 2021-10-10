@@ -152,6 +152,7 @@ d.rotate(-2)
 print(d)
 
 # NOTE: An enumerate is a built-in function that provides an index to data structure elements, making iterations through them easier and simpler.
+# enumerate() returns an enumerate object.
 #     enumerate(iterable, start=0)
 #     We generally use them with loops.
 #     eg. for i,e in enumerate([1,5,9])

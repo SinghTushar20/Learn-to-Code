@@ -34,14 +34,13 @@ int main()
 
 /*
 FUNCTION TEMPLATE : The functions which are generic are function templates. Generalised in terms of data type. 
-                    Above we see 2 examples to understand generic functions. 2 functions are just overloaded with
+    Above we see 2 examples to understand generic functions. 2 functions are just overloaded with
 different data type that's all. Number of parameters are same as well but datatype of parameters are different.
 From main if we call int c as above first function is called and float b calls the second function.
 
 If we notice the body of the function i.e. code/logic written is exactly same only datatype is different.
 So question arises... Why to write same function twice when there is only a difference in data type ?
-Or go into the hassle of function overloading ? Can't we just write a single function combining these 2 functions
-for any data type ? Yes we can. We do T for template in the above .
+Or go into the hassle of function overloading ? Can't we just write a single function combining these 2 functions for any data type ? Yes we can. We do T for template in the above .
 
 We define template <class T> Which is a definition of T defined as class of type template.
 T is a template class and function is template function. Now when in the main function when via int c we call

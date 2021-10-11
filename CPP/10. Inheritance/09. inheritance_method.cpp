@@ -41,8 +41,8 @@ public:
     void grand_child_function()
     {
         // a = 10; // Inaccessible due to a being private in class Parent
-        b = 16;
-        c = 20;
+        // b = 16;
+        // c = 20;
     }
 };
 

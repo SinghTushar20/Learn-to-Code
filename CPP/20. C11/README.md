@@ -19,18 +19,23 @@ int main()
 
 - **Decltype**: If you need a variable,say z, to have same data type as some other variable, say y for that we can do `decltype(y) z = 15*10.5`
 
-- **Final keyword:** Ref:**final.cpp**
+- **Final keyword:** Final keyword used to restrict inheritance as well as overriding of functions.
+
+  - On marking Parent:final class Child is not able to inherit that Parent class no more. Final is used to restrict inheritance.
+
+    Ref:**final.cpp**
 
 - **Smart Pointers**: Pointers are used to access the resources, say heap memory and to access this we use pointers. Problem with heap memory is that when it is not needed we must de-allocate it, mostly this deallocation is something that programmers are too lazy to do most of the time and that causes some severe problems like memory leak, which can cause the programs to crash. JAVA,.NET or C# provide a garbage collection mechanism to deallocate the objects which are not in use.
 
 - Similar to garbage collectors C++ provides smart pointers, these are able to automatically manage memory and de-allocate the objects when these are not in use.
 
 - There are 3 kinds of smart pointers available:
-  1. **unique_ptr**: If one object is created and pointer P1 is pointing to that object, **we cannot use same pointer to point to that same object**.
+
+  1. **unique_ptr**: If one object is created and pointer P1 is pointing to that object, **we cannot use same pointer to point to that same object**. Only one such pointer unless we move it to some other pointer.
   2. **shared_ptr**: If one object is created and pointer P1 is pointing to that object, **here we can use another pointer to point to that same object**. It maintains a reference counter which keeps a track of how many pointers are existing to some object.
   3. **weak_ptr**: Same as shared pointer, only difference being **no reference counter** is maintained. Pointers won't have strong hold on objects, as in the cases where pointers have been holding the objects and are requesting for other objects in that case a deadlock may be formed between pointers. To avoid deadlock weak pointers are used.
 
-- **Problem with normal pointers**: Memory leak a situation say you have a function called fun() it internally creates a dynamic object of class rectangle with the help of a pointer p by `Rectangle *p = new Rectangle();` now when the function ends p is deleted but in the heap memory where p created the object of class Rectangle in heap memory that object still exists it is just that no variable is pointing to it. So there will be a point in the program where heap memory will be full and program crashes due to undeleted objects which were dynamically created at some point in heap memory. 
+- **Problem with normal pointers**: Memory leak a situation say you have a function called fun() it internally creates a dynamic object of class rectangle with the help of a pointer p by `Rectangle *p = new Rectangle();` now when the function ends p is deleted but in the heap memory where p created the object of class Rectangle in heap memory that object still exists it is just that no variable is pointing to it. So there will be a point in the program where heap memory will be full and program crashes due to undeleted objects which were dynamically created at some point in heap memory.
 
 - A good practice to avoid this is do `delete p;`. So, to help the programmers C++ came up with smart pointers, which will automatically de-allocate the object when it goes out of scope. To make a smart pointer we can do following:
 
@@ -46,6 +51,7 @@ fun()
 - **InClass Initializer and Delegation of Constuctors:**
 
 - Delegation of constructor basically means one constructor is able to call another constructor of a class.
+
 ```cpp
 class Test
 {

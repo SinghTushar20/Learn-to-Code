@@ -12,6 +12,7 @@ int main()
     try
     {
         throw 'a';
+        cout<<"hi";
         throw 1;   // We can have multiple catch blocks for every data type.
         throw 1.5; // Will give error of uncaught exception of type double found if you have catch with (int e)
     }

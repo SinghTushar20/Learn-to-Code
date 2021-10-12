@@ -8,6 +8,7 @@ int main()
     {
         if (y == 0)
             throw 0;
+        cout<<"hi";   
         z = x / y;
         cout << z << endl;
     }

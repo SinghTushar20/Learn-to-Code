@@ -24,9 +24,9 @@ main()
 }
 ```
 
-- `~Test()`  is the destructor. Destructor is called when object is destroyed. Constructor is used for initialization purpose and is used to allocate resources. So, makes sense to come to conclusion that destructor is used **for deallocating resources**. External resources such as heap memory,file, network connection. Everything class acquires in constructor, class should release that in destructor.
+- `~Test()` is the destructor. Destructor is called when object is destroyed automatically for object in stack and by the use of `delete` when object is in heap. Constructor is used for initialization purpose and is used to allocate resources. So, makes sense to come to conclusion that destructor is used **for deallocating resources**. External resources such as heap memory,file, network connection. Everything class acquires in constructor, class should release that in destructor.
 
-- **Some Rules:** 
+- **Some Rules:**
 - Can we overload a constructor ? **Yes**
 - Can we have multiple destructors? **No**
 - Can a constructor return anything ? **No**

@@ -9,7 +9,7 @@ if __name__ == '__main__':
         if (comp == 1 and user == 'p') or (comp == 2 and user == 's') or (comp == 3 and user == 'r'):
             print(f"You won, Computer chose {comp}")
         elif (comp == 1 and user == 's') or (comp == 2 and user == 'r') or (comp == 3 and user == 'p'):
-            print(f"Computer won, It chose {comp}")
+            print(f"You think u can defeat me mere human, It chose {comp}")
         else:
             print(f"Its a draw, It chose {comp}")
         choice = input("Wanna continue (Y/N): ")

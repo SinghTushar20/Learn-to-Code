@@ -12,7 +12,7 @@ class StackUnderFlow : exception
 class Stack
 {
 private:
-    int *stk;
+    int *stack;
     int top = -1;
     int size;
 
@@ -20,7 +20,7 @@ public:
     Stack(int sz)
     {
         this->size = sz;
-        stk = new int[size];
+        stack = new int[size];
     }
 
     void push(int x)
@@ -30,7 +30,7 @@ public:
             if (top == size - 1)
                 throw StackOverFlow();
             top++;
-            stk[top] = x;
+            stack[top] = x;
             cout << "Added to the stack: " << x << endl;
         }
         catch (StackOverFlow e)
@@ -45,8 +45,8 @@ public:
         {
             if (top == -1)
                 throw StackUnderFlow();
-            cout << "Popped from stack: " << stk[top] << endl;
-            return stk[top--];
+            cout << "Popped from stack: " << stack[top] << endl;
+            return stack[top--];
         }
         catch (StackUnderFlow f)
         {

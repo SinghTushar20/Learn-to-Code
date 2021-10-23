@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "sidebar.css",
+  "sources": [
+    "Sidebar.svelte"
+  ],
+  "sourcesContent": [
+    "<script lang=\"ts\">import \"svelte/internal\";\r\nlet tasks = [];\r\nlet text = \"\";\r\n</script>\r\n\r\n<style>\r\n    li{\r\n        list-style-type: square;\r\n        color: red;\r\n        font-size: 20px;\r\n    }\r\n    .done{\r\n        color: green;\r\n    }\r\n    button{\r\n        background: paleturquoise;\r\n        color: #000;\r\n        font-weight: bold;\r\n    }\r\n</style>\r\n\r\n<form on:submit={(e)=>{\r\n    e.preventDefault();\r\n    tasks = [{title: text, status: false} ,...tasks];\r\n    text = \"\";\r\n}}><input type=\"text\" bind:value={text} />\r\n    <button type=\"submit\">ADD</button>\r\n</form>\r\n<ul>\r\n    {#each tasks as task}\r\n        <li class={task.status?\"done\":\"\"} on:click={()=>{\r\n            task.status = !task.status;\r\n        }}>{task.title}</li>\r\n    {/each}\r\n</ul>"
+  ],
+  "names": [],
+  "mappings": "AAMI,gBAAE,CAAC,AACC,eAAe,CAAE,MAAM,CACvB,KAAK,CAAE,GAAG,CACV,SAAS,CAAE,IAAI,AACnB,CAAC,AACD,mBAAK,CAAC,AACF,KAAK,CAAE,KAAK,AAChB,CAAC,AACD,oBAAM,CAAC,AACH,UAAU,CAAE,aAAa,CACzB,KAAK,CAAE,IAAI,CACX,WAAW,CAAE,IAAI,AACrB,CAAC"
+}

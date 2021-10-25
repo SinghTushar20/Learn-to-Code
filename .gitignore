@@ -1,9 +1,9 @@
-/.vscode
+.vscode
 /complete-javascript-course-master
 /CP
 /SE Practicals
-/Computer Fundamentals/.obsidian
+.obsidian
 /WEB DEVELOPMENT FULL STACKS
 /Handbooks
 /CG Modern and Project
-/VS code Extentions/*/node_modules
+node_modules

@@ -52,8 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "34f63085b06c5d73",
@@ -89,6 +88,7 @@
   },
   "active": "8d152646559a93f8",
   "lastOpenFiles": [
+    "Build Process.md",
     "Untitled.md"
   ]
 }

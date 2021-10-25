@@ -2,6 +2,10 @@ A virtual environment is a tool or an aid provided to us by Python to keep the d
 Virtual Environment saves the current state of our compiler along with the state of their modules and libraries.
 We can also install different packages and “dataframes” in our virtual environment.
 
+
+To create a virtual environment we can also use:
+    py -m venv virtualenv_name  // to create a new virtual environment named virtualenv_name
+
 For this install virtualenvtool from pip, virtualenv is a tool. It is used to create isolated Python environments.
     virtualenv virtualenv_name  // to create a new virtual environment
     

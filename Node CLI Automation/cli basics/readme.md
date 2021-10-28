@@ -34,8 +34,8 @@ cli-basics
 
 - Whenever we change something in a package we have already published, then we need to update it's version before updating it again.
 
-- Version synamtics: **Major.Minor.Patch**, we can update our package version using the command `npm version <patch/minor/major>` in our package directory.
+- **Version synamtics**: **Major.Minor.Patch**, we can update our package version using the command `npm version <patch/minor/major>` in our package directory.
 
 - We can import package.json and if will convert the entire content into a java script object.
 
-- CLI UX(User Experience): This include things that make the user's life easy like author's info, readme(for user to know how to use the cli), license, keywords(words from which people can find the package in npm), clearing the console, welcome header while using cli, as cli is little to no UI but we can make it clean with color and info. alerts using module like chalk and log-symbols.
+- **CLI UX**(User Experience): This include things that make the user's life easy like author's info, readme(for user to know how to use the cli), license, keywords(words from which people can find the package in npm), clearing the console, welcome header while using cli, as cli is little to no UI but we can make it clean with color and info. alerts using module like chalk and log-symbols.

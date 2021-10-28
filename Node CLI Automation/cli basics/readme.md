@@ -14,11 +14,15 @@ npx cli-basics
 
 **1. CLI BASICS**
 
-    👉 All one need to know to create a CLI from node is a package.json to make our repo a node package. The bin in package.json will have the commands that our shell can execute when we install the package in our system. When the command is called the file that the command refer to will run.
+    👉 All one need to know to create a CLI from node is a package.json to make our repo a node package. 
+    The bin in package.json will have the commands that our shell can execute when we install the package in our system. 
+    When the command is called the file that the command refer to will run.
 
-    👉 Remember to put `#!/usr/bin/env` node at the top of the file that is going to execute when the command run. This tell the shell/terminal to run the file with node.
+    👉 Remember to put `#!/usr/bin/env` node at the top of the file that is going to execute when the command run. 
+    This tell the shell/terminal to run the file with node.
 
-    👉 `npm link` is to make our package a global binary, which in laymen term mean installing the package in our system. When we publish the package to npm then we can install it using npm install or use it using npx.
+    👉 `npm link` is to make our package a global binary, which in laymen term mean installing the package in our system. 
+    When we publish the package to npm then we can install it using npm install or use it using npx.
 
     👉 To uninstall we use `npm uninstall <package-name>` or if we have linked it we can use `npm unlink`.
 

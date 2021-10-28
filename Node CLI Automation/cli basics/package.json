@@ -1,0 +1,24 @@
+{
+  "name": "cli-basics",
+  "version": "1.0.0",
+  "description": "My first CLI using node.",
+  "license": "MIT",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "cli-basics": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-welcome": "^2.2.2",
+    "log-symbols": "^5.0.0"
+  },
+  "keywords": [
+    "cli-basics",
+    "dheeraj",
+    "learn-cli"
+  ],
+  "author": {
+    "name": "Dheeraj Bisht"
+  }
+}

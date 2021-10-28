@@ -292,7 +292,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h1 = element("h1");
-    			h1.textContent = "Helllllloooooo folks praaaa";
+    			h1.textContent = "praaaa";
     			add_location(h1, file, 2, 0, 44);
     		},
     		l: function claim(nodes) {

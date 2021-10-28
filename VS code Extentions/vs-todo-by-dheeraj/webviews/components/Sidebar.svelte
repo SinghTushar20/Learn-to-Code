@@ -34,3 +34,9 @@
         }}>{task.title}</li>
     {/each}
 </ul>
+<button on:click={()=>{
+    tsvscode.postMessage({
+       type: "onInfo",
+       value: "hill"
+   });
+}}>Click me</button>

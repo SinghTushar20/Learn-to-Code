@@ -182,6 +182,7 @@ class SidebarProvider {
         };
         webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
         webviewView.webview.onDidReceiveMessage(async (data) => {
+            console.log("hello");
             switch (data.type) {
                 case "onInfo": {
                     if (!data.value) {

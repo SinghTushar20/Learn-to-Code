@@ -358,30 +358,30 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
-    	child_ctx[6] = list;
-    	child_ctx[7] = i;
+    	child_ctx[6] = list[i];
+    	child_ctx[7] = list;
+    	child_ctx[8] = i;
     	return child_ctx;
     }
 
     // (30:4) {#each tasks as task}
     function create_each_block(ctx) {
     	let li;
-    	let t_value = /*task*/ ctx[5].title + "";
+    	let t_value = /*task*/ ctx[6].title + "";
     	let t;
     	let li_class_value;
     	let mounted;
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[4](/*task*/ ctx[5], /*each_value*/ ctx[6], /*task_index*/ ctx[7]);
+    		return /*click_handler*/ ctx[4](/*task*/ ctx[6], /*each_value*/ ctx[7], /*task_index*/ ctx[8]);
     	}
 
     	const block = {
     		c: function create() {
     			li = element("li");
     			t = text(t_value);
-    			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*task*/ ctx[5].status ? "done" : "") + " svelte-tojmow"));
+    			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*task*/ ctx[6].status ? "done" : "") + " svelte-tojmow"));
     			add_location(li, file, 30, 8, 612);
     		},
     		m: function mount(target, anchor) {
@@ -395,9 +395,9 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*tasks*/ 1 && t_value !== (t_value = /*task*/ ctx[5].title + "")) set_data_dev(t, t_value);
+    			if (dirty & /*tasks*/ 1 && t_value !== (t_value = /*task*/ ctx[6].title + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*tasks*/ 1 && li_class_value !== (li_class_value = "" + (null_to_empty(/*task*/ ctx[5].status ? "done" : "") + " svelte-tojmow"))) {
+    			if (dirty & /*tasks*/ 1 && li_class_value !== (li_class_value = "" + (null_to_empty(/*task*/ ctx[6].status ? "done" : "") + " svelte-tojmow"))) {
     				attr_dev(li, "class", li_class_value);
     			}
     		},
@@ -423,9 +423,11 @@ var app = (function () {
     	let form;
     	let input;
     	let t0;
-    	let button;
+    	let button0;
     	let t2;
     	let ul;
+    	let t3;
+    	let button1;
     	let mounted;
     	let dispose;
     	let each_value = /*tasks*/ ctx[0];
@@ -441,8 +443,8 @@ var app = (function () {
     			form = element("form");
     			input = element("input");
     			t0 = space();
-    			button = element("button");
-    			button.textContent = "ADD";
+    			button0 = element("button");
+    			button0.textContent = "ADD";
     			t2 = space();
     			ul = element("ul");
 
@@ -450,13 +452,18 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
+    			t3 = space();
+    			button1 = element("button");
+    			button1.textContent = "Click me";
     			attr_dev(input, "type", "text");
     			add_location(input, file, 25, 3, 481);
-    			attr_dev(button, "type", "submit");
-    			attr_dev(button, "class", "svelte-tojmow");
-    			add_location(button, file, 26, 4, 526);
+    			attr_dev(button0, "type", "submit");
+    			attr_dev(button0, "class", "svelte-tojmow");
+    			add_location(button0, file, 26, 4, 526);
     			add_location(form, file, 21, 0, 357);
     			add_location(ul, file, 28, 0, 571);
+    			attr_dev(button1, "class", "svelte-tojmow");
+    			add_location(button1, file, 35, 0, 754);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -466,7 +473,7 @@ var app = (function () {
     			append_dev(form, input);
     			set_input_value(input, /*text*/ ctx[1]);
     			append_dev(form, t0);
-    			append_dev(form, button);
+    			append_dev(form, button0);
     			insert_dev(target, t2, anchor);
     			insert_dev(target, ul, anchor);
 
@@ -474,10 +481,14 @@ var app = (function () {
     				each_blocks[i].m(ul, null);
     			}
 
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, button1, anchor);
+
     			if (!mounted) {
     				dispose = [
     					listen_dev(input, "input", /*input_input_handler*/ ctx[2]),
-    					listen_dev(form, "submit", /*submit_handler*/ ctx[3], false, false, false)
+    					listen_dev(form, "submit", /*submit_handler*/ ctx[3], false, false, false),
+    					listen_dev(button1, "click", /*click_handler_1*/ ctx[5], false, false, false)
     				];
 
     				mounted = true;
@@ -519,6 +530,8 @@ var app = (function () {
     			if (detaching) detach_dev(t2);
     			if (detaching) detach_dev(ul);
     			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(button1);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -561,6 +574,10 @@ var app = (function () {
     		$$invalidate(0, each_value[task_index].status = !task.status, tasks);
     	};
 
+    	const click_handler_1 = () => {
+    		tsvscode.postMessage({ type: "onInfo", value: "hill" });
+    	};
+
     	$$self.$capture_state = () => ({ tasks, text });
 
     	$$self.$inject_state = $$props => {
@@ -572,7 +589,14 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [tasks, text, input_input_handler, submit_handler, click_handler];
+    	return [
+    		tasks,
+    		text,
+    		input_input_handler,
+    		submit_handler,
+    		click_handler,
+    		click_handler_1
+    	];
     }
 
     class Sidebar extends SvelteComponentDev {

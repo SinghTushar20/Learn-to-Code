@@ -2,13 +2,9 @@ A virtual environment is a tool or an aid provided to us by Python to keep the d
 Virtual Environment saves the current state of our compiler along with the state of their modules and libraries.
 We can also install different packages and “dataframes” in our virtual environment.
 
-
 To create a virtual environment we can also use:
     py -m venv virtualenv_name  // to create a new virtual environment named virtualenv_name
 
-For this install virtualenvtool from pip, virtualenv is a tool. It is used to create isolated Python environments.
-    virtualenv virtualenv_name  // to create a new virtual environment
-    
 Once created we need to activate them to start using that env.
     .\virtualenv_name\Scripts\activate  
     (virtualenv_name)$ deactivate   // to deactivate the env
@@ -17,4 +13,4 @@ requirements.txt is just like package-lock.json that keeps the record of all the
     pip freeze > requirement.txt    // do this in same dir. of vir. env.
 
 pip install package_name == version // to install a package's specific version
-pip install -r .\requirements.txt   // to install all packages of req txt file
+pip install -r .\requirements.txt   // to install all packages of requirement txt file

@@ -1,13 +1,15 @@
-# `npx cli-basics`
+> My first CLI using node.
 
-> Get to know about the author and basics of CLI using node.
+## Installing the package
+
+To use this CLI download the zip file of the package and then in the package directory run ```npm link```
 
 ## Usage
 
 To use this CLI run the following command:
 
 ```sh
-npx cli-basics
+cli-basics
 ```
 
 ## NOTES

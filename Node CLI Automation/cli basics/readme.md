@@ -30,6 +30,8 @@ cli-basics
 
     💥 npm link and unlink will work when we execute them from the package repo.
 
+- It is important to note that the CLI tool is infact a node package, it's just that this package doesn't export anything so we can't import it in any other project of our's but it is a command line tool. Afterall a package is just there to help us like a software or app in our device.
+
 - `#!` is called a shebang or hashbang, it tells to the kernel which interpreter is to be used to run the commands present in the file. If you run a script without specifying the interpreter, the shell will spawn another instance of itself and try to run the commands in the script.
 
 - Whenever we change something in a package we have already published, then we need to update it's version before updating it again.

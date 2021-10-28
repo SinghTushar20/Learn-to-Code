@@ -43,8 +43,13 @@ resized = cv.resize(img, (500,500), interpolation=cv.INTER_CUBIC)
 cv.imshow('Resized', resized)
 
 # Flipping
-flip = cv.flip(img, -1)
-cv.imshow('Flip', flip)
+
+Hflipped = cv.flip(img, 1)
+cv.imshow("Flipped Horizontally", Hflipped)
+Vflipped = cv.flip(img, 0)
+cv.imshow("Flipped Vertically", Vflipped)
+HVflipped = cv.flip(img, -1)
+cv.imshow("Flipped Horizontally & Vertically", HVflipped)
 
 # Cropping
 cropped = img[200:400, 300:400]

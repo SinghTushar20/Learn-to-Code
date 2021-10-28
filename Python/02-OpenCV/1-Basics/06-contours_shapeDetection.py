@@ -18,6 +18,7 @@ canny = cv.Canny(blur, 125, 175)
 cv.imshow('Canny Edges', canny)
 
 # Thresholding is just binarising every pixel of the image so it can either be 0(black) or 1(white)
+# ret is the threshold value, 125 for case below.
 # ret, thresh = cv.threshold(gray, 125, 255, cv.THRESH_BINARY)
 # cv.imshow('Thresh', thresh)
 

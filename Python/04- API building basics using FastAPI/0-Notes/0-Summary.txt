@@ -50,8 +50,11 @@ SQL is the language used to communicate with the DBMS.
 We use a DB driver to interact with DB from our program, using SQL.
 
 ORM(Object Relational Mapper) is a layer of abstraction that sits on top of DB. We perform all DB operation with python code and ORM is gonna convert them to SQL and interact with the DB for us.
-    We can define a table as Python model and queries are made using python only.
+    We can define a table as Python Object model and queries are made using python only.
     We will still need DB driver for interaction.
+
+An ORM maps between an Object Model in code and a Relational Database. An ODM maps between an Object Model in code and a Document Database. PostgreSQL is not an ORM, it's a Relational Database, more specifically, a SQL Database. MongoDB is not an ODM, it's a Document Database.
+An ORM use a SQL database Driver to translate the object notation to relational notation and an ODM use a JSON or JSONB api to translate the Object notation to Document notation.
 
 Schema(Pydantic) model VS ORM Model
     Schema model defines structure of a request and response, how each parameter should look like, eg. message should be string, id should be int etc. Though they are completly optional they build strict typing kinda thing and help so that user doesn't give a bullshit request.
@@ -65,7 +68,7 @@ Note: A cryptographic salt is made up of random bits added to each password inst
 
 Many a times our API will have many http requests so to handle them we put them in a seperate folder called router in which we create different files according to the table and use APIRouter to create them router's request, in the main the app (FastAPI instance) is going to include them using include_router.
 
-Authentication can be done using JWT token, When the user's credentials are verified the API will assign a JWT token to the user's system along with the response and will every request the Token will also be attached to it in it's header, the API will first check if the token is vaild or not, if it is then it will process the requests.
+Authentication can be done using JWT token, When the user's credentials are verified the API will assign a JWT(JSON Web Token) token to the user's system along with the response and will every request the Token will also be attached to it in it's header, the API will first check if the token is vaild or not, if it is then it will process the requests.
 
 NOTE: Token is not encrypted so be careful what data you have in payload.
 

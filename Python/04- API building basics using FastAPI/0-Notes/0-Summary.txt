@@ -25,7 +25,7 @@ NOTE: When we create multiple routes the first match is the only one get execute
 
 Postman is a good tool for giving requests.
 
-A schema is metadata that tells us how our data is structured. Schema is used for validation of data in a http method where the API is provided with a some data like POST request.
+A schema is metadata that tells us how our data is structured. Schema is used for validation of data in a http method where the API is provided with a some data like POST request or send some data using GET request.
     We do this using pydantic module in python.
 
 CRUD application is Create, Read, Update, Delete
@@ -37,6 +37,8 @@ CRUD application is Create, Read, Update, Delete
 Payload is the part of transmitted data that is the actual intended message. The payload can be sent or received in various formats, including JSON.
 
 Status Codes are the codes that tell us what is the status of our request to the server.
+
+NOTE: We should also consider cases when our API will throw an exception and implement them reasonably by sending required data and status code explaining exception.
 
 We use databases for storing data instead of memory of program.
     We don't interact with databases directly instead we use a DBMS.

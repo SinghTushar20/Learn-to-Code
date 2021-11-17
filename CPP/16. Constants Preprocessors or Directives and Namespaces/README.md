@@ -23,13 +23,14 @@ int main()
 {
     int x = 10;
     const int *ptr = &x; // ptr = 200 and *ptr = 10, read as pointer to an integer constant
-    ++*ptr; // x = 10 --> ++*ptr Error as ptr is pointer to a constant 
-    cout<<*ptr; // Output 10 --> No error as const int pointer has read only access to x 
+    ++*ptr; // x = 10 --> ++*ptr Error as ptr is pointer to a constant
+    cout<<*ptr; // Output 10 --> No error as const int pointer has read only access to x
     int y;
     ptr = &y; // Even though it was const ptr it can change the variable to which it is pointing to.
     cout << *ptr; //This will not give any errors but as the pointer is const int type it can't be used to do ++*ptr;
 }
 ```
+
 - Another way of using pointers where pointer is constant and not the data to which it is pointing
 
 ```cpp
@@ -101,6 +102,8 @@ int main()
 
 - **Preprocessor Directives/ Macros**: These are the instructions to compiler. We give some instructions to the compiler before it starts compiling the program, compiler can follow and perform those instructions. An example of this is `#define` preprocessor directive, used often at times to define a constant value. Using `#define` what we define are known as symbolic constants.
 
+  - NOTE: Anything beginning with `#` is a preprocessor, the first thing that a compiler does is it preprocesses the preprocessor statements.
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -164,7 +167,7 @@ namespace Second
     }
 }
 int main()
-{  
+{
     First::func();
     // if you do using namespace First in that case every time you call func() First::func() would be called by default and you can do Second::func() where ever you want Second
     // std namespace has cin, cout in it that is why we have been writing using namespace std.

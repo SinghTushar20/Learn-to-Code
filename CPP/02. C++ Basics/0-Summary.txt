@@ -83,3 +83,5 @@ This doesn't change type of original variable but it creates a soft copy with ne
     eg. int x = 65;
         cout<< char(x); //A
         cout<< (char)x; //A
+
+NOTE: Operators are just functions.

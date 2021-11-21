@@ -1,0 +1,29 @@
+{
+	"name": "01",
+	"version": "1.0.0",
+	"description": "",
+	"template": "opengl-modern",
+	"author": "",
+	"license": "MIT",
+	"prepMacroDefs": [],
+	"includeDirs": [
+		"include",
+		"src"
+	],
+	"libraryDirs": [
+		"lib"
+	],
+	"link": [
+		"glfw3_static",
+		"gdi32"
+	],
+	"command": [
+		"g++",
+		"-o bin/main.exe",
+		"-g ${sources}",
+		"${prepMacroDefs}",
+		"${includeDirs}",
+		"${libraryDirs}",
+		"${link}"
+	]
+}

@@ -98,7 +98,7 @@
 - The graphics pipeline can be divided into two large parts
   - Transforming the 3D coordinates into 2D coordinates.
   - Transforming the 2D coordinates into actual colored pixels.
-- ![[Pasted image 20211205060846.png]]
+- ![Graphics Pipeline in OpenGL](graphic-pipeline.png "Graphics Pipeline in OpenGL")
   - NOTE: the blue sections represent sections where we can inject our own shaders.
   - The first part of the pipeline is the _vertex shader_ that takes as input a single vertex.
     - A **vertex** is a collection of data per 3D coordinate. This vertex's data is represented using **vertex attributes** that can contain any data say position, texture coordinates, normals, colors, tangents etc.
@@ -160,7 +160,7 @@
 - There's only a one-way communication which means you can pass information from the vertex shader to the fragment shader but not vice versa.
 - Shaders are also very isolated programs in that they're not allowed to communicate with each other; the only communication they have is via their inputs and outputs.
 - A **shader program** object is the final linked version of multiple shaders combined. - To use the recently compiled shaders we have to link them to a shader program object and then activate this shader program when rendering objects. The activated shader program's shaders will be used when we issue render calls. - When linking the shaders into a program it links the outputs of each shader to the inputs of the next shader. This is also where you'll get linking errors if your outputs and inputs do not match. - Don't forget to delete the shader objects once we've linked them into the program object, we no longer need them anymore
-  ![[Pasted image 20211208112031.png]]
+  ![Basic Shader Code](basic-shader-code.png "Basic Shader Code")
 
 ## GLSL
 
@@ -262,9 +262,10 @@
 - We have 2 functions in OpenGL to check for errors i.e. `glGetError` and `glDebugMessageCallback`.
 
 ## Textures
-- A texture is a 2D image (even 1D and 3D textures exist) used to add detail to an object. 
+
+- A texture is a 2D image (even 1D and 3D textures exist) used to add detail to an object.
 - Each vertex should have a texture coordinate associated with them that specifies what part of the texture image to sample from. Fragment interpolation then does the rest for the other fragments.
-	- Texture pixel is also known as *texel*.
+  - Texture pixel is also known as _texel_.
 - Next to images, textures can also be used to store a large collection of arbitrary data to send to the shaders.
 - Retrieving the texture color using texture coordinates is called **sampling**.
-	- Texture sampling has a loose interpretation and can be done in many different ways. It is thus our job to tell OpenGL how it should _sample_ its textures.
+  - Texture sampling has a loose interpretation and can be done in many different ways. It is thus our job to tell OpenGL how it should _sample_ its textures.

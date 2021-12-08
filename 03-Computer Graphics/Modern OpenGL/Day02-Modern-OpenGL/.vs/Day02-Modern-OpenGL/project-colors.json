@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "422e93d0-5c1f-4585-9cb7-1799eaada1c3": {
+      "ProjectGuid": "422e93d0-5c1f-4585-9cb7-1799eaada1c3",
+      "DisplayName": "Day02-Modern-OpenGL",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,15 @@
+{
+  "name": "file_organiser_cli",
+  "version": "1.0.0",
+  "description": "This is a file organiser that help us organise our files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "file_organiser",
+    "dheeraj"
+  ],
+  "author": "Dheeraj",
+  "license": "ISC"
+}

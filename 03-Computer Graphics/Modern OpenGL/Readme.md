@@ -194,7 +194,7 @@
   - Each shader can specify inputs and outputs using those keywords and wherever an output variable matches with an input variable of the next shader stage they're passed along.
   - So if we want to send data from one shader to the other we'd have to declare an output in the sending shader and a similar input in the receiving shader. OpenGL will link those variables together and then it is possible to send data between shaders (this is done when linking a program object).
 - The vertex and fragment shaders differ a bit sometimes.
-  - The _vertex shader_ differs in its input, in that it receives its input straight from the vertex data. To define how the vertex data is organized we specify the input variables with location metadata so we can configure the vertex attributes on the CPU as `layout (location = 0)`.
+  - The _vertex shader_ differs in its input, in that it receives its input straight from the vertex data. To define how the vertex data is organized we specify the input variables with location metadata so we can configure the vertex attributes on the CPU as `layout (location = 0)`, the location can be 1, 2 if we provide other data such as color or texture co-ordinates as well and specified it's layout in vertex attribute.
   - The _fragment shader_ requires a `vec4` color output variable, since it needs to generate a final output color. If failed to specify an output color in the fragment shader, the color buffer output for those fragments will be undefined (which usually means OpenGL will render them either black or white).
 - **Uniforms** are another way to pass data from our application on the CPU to the shaders on the GPU.
   - They are global, meaning that a uniform variable is unique per shader program object, and can be accessed from any shader at any stage in the shader program.
@@ -261,6 +261,12 @@
 
 - We have 2 functions in OpenGL to check for errors i.e. `glGetError` and `glDebugMessageCallback`.
 
+## Renderer
+
+- Rendering is the act of drawing the modelled objects on screen.
+- The renderer is the piece of code that take the list of properties for modelling an object and draws the actual object on the screen (or in an offscreen canvas to be composited on screen with the other objects later).
+  - The renderer is like the factory where we give a bunch of data in the form of like a vertex buffer, an index buffer, a shader or whatever and the renderer make that appear in the screen.
+
 ## Textures
 
 - A texture is a 2D image (even 1D and 3D textures exist) used to add detail to an object.
@@ -269,3 +275,69 @@
 - Next to images, textures can also be used to store a large collection of arbitrary data to send to the shaders.
 - Retrieving the texture color using texture coordinates is called **sampling**.
   - Texture sampling has a loose interpretation and can be done in many different ways. It is thus our job to tell OpenGL how it should _sample_ its textures.
+- Co-ordinate axis for texture is s,t,r i.e. equivalent to x,y,z.
+- To control how textures are wrapped on models, models define texture coordinates for their geometry that tells OpenGL which part of the texture should go on which part of the geometry. The texture's coordinates always range from 0 to 1.0 with (0, 0) at the bottom left.
+
+  - This two value, 0 to 1.0 system gives the geometry an easy way to reference the area of the image they want applied to their surface.
+  - Modeling software calls the process of wrapping geometry in textures S-T mapping.
+  - Another OpenGL feature of textures is setting the wrap mode. The wrap mode defines how a texture behaves when it is given texture coordinates outside the range of 0 to 1.
+
+- Texture coordinates do not depend on resolution but can be any floating point value, thus OpenGL has to figure out which texture pixel (also known as a texel ) to map the texture coordinate to. This becomes especially important if you have a very large object and a low resolution texture. OpenGL has options for this texture filtering as well.
+  - **Texture filtering** can be set for magnifying and minifying operations (when scaling up or downwards) so you could for example use nearest neighbor filtering when textures are scaled downwards and linear filtering for upscaled textures.
+- **Mipmaps** is a collection of texture images where each subsequent texture is twice as small compared to the previous one.
+  - After a certain distance threshold from the viewer, OpenGL will use a different mipmap texture that best suits the distance to the object. Because the object is far away, the smaller resolution will not be noticeable to the user. OpenGL is then able to sample the correct texels, and there's less cache memory involved when sampling that part of the mipmaps.
+- Loading files of different formats can be a hectic task so for that we use some sort of libraries. With C++ as the language we can read and write images using **stb_image** library.
+  - We use stb_image to actually load the texture image, so we give it a file path and it will basically give us a pointer to a buffer of RGBA pixels.
+  - We then take that pixel array and upload it to the GPU using OpenGL because it is our graphics specification so we use OpenGL to send that data into the GPU as a texture.
+  - Finally we can modify our shaders to actually read that texture when it's drawing so the pixel shader(the fragment shader) is going to read from that texture memory and actually work out which pixel should be which color as per that texture.
+- We load our image -> we create a texture in OpenGL -> we then have to bind that texture when it's time to render -> we modify our shader to work on the bounded texture -> we also sample that texture in our shader -> finally when we draw an object we should see that texture.
+- We assign the texture to a Texture Unit. One can think of texture units as slots for textures that come together as a bundle. These generally hold about 16 textures, and allow the fragment shader to work with all 16 textures at the same time. To insert our texture in the slot of a Texture Unit, we simply need to activate that Texture.
+- Blending is essentially how we render something that is partially or fully transparent.
+  - Blending determines how we actually combine our output color(color we output from our fragment shader) with what is already in our target buffer(the buffer our fragment shader is drawing to).
+  - Blending in OpenGL by default is disabled so we enable it in 3 steps:
+    ![Blending in Opengl](blending-opengl.png "Blending in Opengl")
+
+## Debug UI or Real Time Rendering
+
+- When working with computer grahics we need to constantly tweek and sometimes debug to get the desired result we want and for that we can't just switch between the code and re-compile everytime so we want someting in the application that can help us.
+  - We can use a library called imGUI for that.
+
+## Maths and Transformation
+
+- Maths in graphics programming revolves around Matrices and Vectors.
+  - Matrix is essentially an array of numbers that we can manipulate by multiplying or we can set up in various ways those calculations can be useful for things like positioning objects in a 3d world.
+  - There are two types of vectors that we deal with in graphics programming -> directional vectors and positional vectors.
+    - Vector is seen as like a direction and magnitude or a length.
+- Creating Matrices and Vectors from scratch may be a hectic task so one can use some maths library for that like GLM (OpenGL Mathematics).
+  - NOTE: In OpenGL multidimentional arrays are in column-major order.
+- A projection matrix is a way for us to actually tell our window how we want to map all of our different vertices to it.
+  - It just convert all of the object's positions that we have into something called normalized device coordinates which is basically some kind of normalized space that we can then map to our window.
+    - A normalized space is literally a coordinate system between -1 and 1. The window(does not matter resolution, size of window) let's just say we render in full-screen so the left side will be -1, the right side will be 1, the bottom will be -1 and the top will be 1.
+    - We have our computer monitor and we have our window open where we're actually rendering all of our graphics and that is between -1 and 1. However what we usually have is like a 3d world or maybe a 2d object somewhere on our screen and we need to convert it into that space that's what a projection matrix does. But at the end of the day every single vertex position of all of the objects gets mapped into a space that is between -1 and 1.
+  - Orthographic and prespective projection are the two major projection.
+    ![Projection](projection.png "Projection")
+- MVP(Model View Projection Matrix): The model, view and projection matrices are three separate matrices. Model maps from an object's local coordinate space into world space, view from world space to camera space, projection from camera to screen.
+  - The view matrix is supposedly supposed to represent our camera's transform(translation, rotation and scale) and the model matrix is supposed to represent our object's transform(translation, rotation and scale).
+  - We multiply all the 3 matrices together and then multiply that resulting matrix with our vertex position (the vertex position of our geometry which is stored inside our vertex buffer) and that transforms that vertex into where it should be on our actual screen.
+    - In OpenGL the multiplication happen PxVxM because it's column major but in direct3D which is row-major it's MxVxP.
+
+## Multiple Rendering
+
+- To draw same objects on different positions on the screen.
+
+  - Doing this require different vertex positions which mean having an additional vertex buffer because we would need to create a second vertex buffer which contains all the positions of the second instance of that same object and then we could use that to actually draw them somewhere else.
+  - We could also do it by changing the _Model View projection matrix uniform_, basically a matrix that had a different transformation applied like a different model matrix essentially which position our second object somewhere else in the scene. When that got multiplied with that existing kind of vertex attributes(multiplication happen in vertex shader) that we have. So those existing positions it would put them somewhere else in the screen.
+    - This is a better way if we want to draw the same type of object with different/same transforms.
+    - But if the count of objects increases then doing this kind of thing in a loop is not a good idea then we need to switch to something called batch rendering.
+
+- To draw different objects on different positions on the screen require issuing different draw calls with their own data or we can use batch rendering.
+
+## Batch Rendering
+
+- Every game engine needs to generate data using the Central Processing Unit (CPU) on your motherboard, and then transfer this data over to the Graphics Processing Unit (GPU) on your video card so that it can render things to the screen.
+- When rendering different data objects, it is best to organize the data in groups so that you minimize the number of calls from the CPU to the GPU. You also want to minimize the number of state changes which can kill your game's performance. The group that holds the data to be rendered is called a batch.
+- Batching is the act of grouping tasks together, so you do them all at once, instead of switching between tasks that take place in different programs or areas.
+  - How we can batch geometry together or how we can render more than one piece of geometry in a single draw call is what batching and batch rendering mean.
+  - Batching means we batch together all of the geometry into a single vertex buffer and index buffer and then simply draw that once.
+    ![Batch Rendering](batch-rendering.png "Batch Rendering")
+- Remember batch rendering don't promise drawing everything in a single draw call it's just a way to reduce the excessive amount of draw calls that helps in performance.

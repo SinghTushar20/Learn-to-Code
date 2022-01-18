@@ -8,6 +8,8 @@
 
 - OpenGL at its core is _just a specification_, it's kind of like a C++ specification in that regard it doesn't actually define any code or anything what it is is a specification that lists what function should exist, what parameters it take and what should it return. It's just a specification of what you can do with the API there's no implementation whatsoever.
 
+  - The OpenGL specification specifies exactly what the result/output of each function should be and how it should perform. It is then up to the developers implementing this specification to come up with a solution of how this function should operate.
+
 - OpenGL's implementation is actually done in the GPU driver by the GPU manufacturer. Every graphics card manufacturer gonna have their own implementations so everyone's implementation of OpenGL is gonna be slightly different which is why in a lot of cases some things may work on NVIDIA drivers on an NVIDIA GPU but that same game might look a little bit different on AMD or maybe there are bugs etc.
 
 - Since most implementations are built by graphics card manufacturers, whenever there is a bug in the implementation this is usually solved by updating the video card drivers; those drivers include the newest versions of OpenGL that the card supports. This is one of the reasons why it's always advised to occasionally update your graphic drivers.
@@ -107,7 +109,7 @@
   - The output of the primitive assembly stage is passed to the geometry shader. The _geometry shader_ takes as input a collection of vertices that form a primitive and has the ability to generate other shapes by emitting new vertices to form new (or other) primitive(s).
   - The output of the geometry shader is then passed on to the _rasterization stage_ where it maps the resulting primitive(s) to the corresponding pixels on the final screen, resulting in fragments for the fragment shader to use.
     - Before the fragment shaders run, clipping is performed. Clipping discards all fragments that are outside your view, increasing performance.
-    - A fragment in OpenGL is all the data required for OpenGL to render a single pixel.
+    - **A fragment in OpenGL is all the data required for OpenGL to render a single pixel.**
   - The main purpose of the fragment shader is to calculate the final color of a pixel and this is usually the stage where all the advanced OpenGL effects occur.
     - Usually the fragment shader contains data about the 3D scene that it can use to calculate the final pixel color (like lights, shadows, color of the light and so on).
   - After all the corresponding color values have been determined, the final object will then pass through one more stage that is called the _alpha test and blending stage_.
@@ -160,7 +162,11 @@
 - There's only a one-way communication which means you can pass information from the vertex shader to the fragment shader but not vice versa.
 - Shaders are also very isolated programs in that they're not allowed to communicate with each other; the only communication they have is via their inputs and outputs.
 - A **shader program** object is the final linked version of multiple shaders combined. - To use the recently compiled shaders we have to link them to a shader program object and then activate this shader program when rendering objects. The activated shader program's shaders will be used when we issue render calls. - When linking the shaders into a program it links the outputs of each shader to the inputs of the next shader. This is also where you'll get linking errors if your outputs and inputs do not match. - Don't forget to delete the shader objects once we've linked them into the program object, we no longer need them anymore
-  ![Basic Shader Code](basic-shader-code.png "Basic Shader Code")
+- To work with shaders in OpenGL we follow the following steps:
+  - Create a shader in GPU memory -> Fill that memory with a shader value(Copy shader from CPU to GPU) -> Compile that shader. (We do these steps with both the shaders).
+  - Then we create a shaderProgram in the GPU that will run both the vertex and fragment shader, then we attach both the vertex and the fragment shader to that shader program finally we link that program.
+  - Whenever we wanna use those shaders we just use that shaderProgram.(`glUseProgram`)
+    ![Basic Shader Code](basic-shader-code.png "Basic Shader Code")
 
 ## GLSL
 
@@ -178,7 +184,7 @@
     	out_variable_name = weird_stuff_we_processed;
     }
     ```
-- GLSL has most of the default basic types like: `int`, `float`, `double`, `uint` and `bool`. It also features two container types, namely `vectors` and `matrices`.
+- GLSL has most of the default basic types like: `int`, `float`, `double`, `uint` and `bool`. It also features two container types, namely `vec` and `mat` and `sampler2D` and `uniform`.
 - A vector in GLSL is a 1,2,3 or 4 component container for any of the basic types. They can take the following form (`n` represents the number of components):
   - `vecn`: the default vector of `n` floats.
   - `bvecn`: a vector of `n` booleans.
@@ -194,7 +200,8 @@
   - Each shader can specify inputs and outputs using those keywords and wherever an output variable matches with an input variable of the next shader stage they're passed along.
   - So if we want to send data from one shader to the other we'd have to declare an output in the sending shader and a similar input in the receiving shader. OpenGL will link those variables together and then it is possible to send data between shaders (this is done when linking a program object).
 - The vertex and fragment shaders differ a bit sometimes.
-  - The _vertex shader_ differs in its input, in that it receives its input straight from the vertex data. To define how the vertex data is organized we specify the input variables with location metadata so we can configure the vertex attributes on the CPU as `layout (location = 0)`, the location can be 1, 2 if we provide other data such as color or texture co-ordinates as well and specified it's layout in vertex attribute.
+  - The _vertex shader_ differs in its input, each input variable is also known as a **vertex attribute** aka the layout. To define how the vertex data is organized we specify the input variables with location metadata so we can configure the vertex attributes on the CPU as `layout (location = 0)`, the location can be 1, 2 if we provide other data such as color or texture co-ordinates as well and specified it's layout in vertex attribute.
+    - There is a maximum number of vertex attributes we're allowed to declare limited by the hardware. OpenGL guarantees there are always at least 16 4-component vertex attributes available, but some hardware may allow for more.
   - The _fragment shader_ requires a `vec4` color output variable, since it needs to generate a final output color. If failed to specify an output color in the fragment shader, the color buffer output for those fragments will be undefined (which usually means OpenGL will render them either black or white).
 - **Uniforms** are another way to pass data from our application on the CPU to the shaders on the GPU.
   - They are global, meaning that a uniform variable is unique per shader program object, and can be accessed from any shader at any stage in the shader program.
@@ -211,27 +218,6 @@
   - **Fragment interpolation** happen in the fragment shader. When rendering something the rasterization stage usually results in a lot more fragments than vertices originally specified. The rasterizer then determines the positions of each of those fragments based on where they reside on the shape. Based on these positions, it interpolates all the fragment shader's input variables.
     - Say for example we have a line where the upper point has a green color and the lower point a blue color. If the fragment shader is run at a fragment that resides around a position at `70%` of the line, its resulting color input attribute would then be a linear combination of green and blue; to be more precise: `30%` blue and `70%` green.
     - Fragment interpolation is applied to all the fragment shader's input attributes.
-
-## Drawing with OpenGL
-
-- Drawing an object in OpenGL would now look something like this:
-  ```cpp
-  // 0. copy our vertices array in a buffer for OpenGL to use
-  glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-  // 1. then set the vertex attributes pointers
-  // - NOTE: The vertex attribute will not be binded by the vertex buffer even though we create it after we bind the buffer.
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-  glEnableVertexAttribArray(0);
-  // 2. use our shader program when we want to render an object
-  glUseProgram(shaderProgram);
-  // 3. now draw the object
-  someOpenGLFunctionThatDrawsOurObject();
-  ```
-- Basic overview of how things are drawn in OpenGL without vertex array buffer are a bit more complex but we can visualise it like this:
-  - We bind our shader then we set up our uniforms.
-  - Next we bind our vertex buffer and set up the layout of that vertex buffer and enable it.
-  - Finally we bind our index buffer and then we call GL draw elements.
 
 ## Index Buffer
 
@@ -252,10 +238,40 @@
   - Calls to `glEnableVertexAttribArray` or `glDisableVertexAttribArray`.
   - Vertex attribute configurations via `glVertexAttribPointer`.
   - Vertex buffer objects associated with vertex attributes by calls to `glVertexAttribPointer`.
+- A VAO stores the `glBindBuffer` calls when the target is `GL_ELEMENT_ARRAY_BUFFER`. This also means it stores its unbind calls so make sure you don't unbind the element array buffer before unbinding your VAO, otherwise it doesn't have an EBO configured.
 - With Vertex array buffer the way that we draw things changes from being bind our shader -> bind our vertex buffer -> set up the vertex layout -> bind our indexed buffer and then actually issue the draw call, it changes from that to just being bind our shader -> then bind our vertex array -> then we bind our index buffer and then finally we we issue that draw call.
   - Basically binding the vertex buffer and setting up its layout just becomes binding the vertex array object because that contains all the state that we actually need.
   - You can actually remove the index buffer binding as well, it is also stored within the VAO.
 - You basically can either have one _global VAO_ for the entire program and then bind different buffers and different vertex specifications every time or you have a _separate VAO_ for each piece of geometry or each unique piece of geometry.
+
+## Drawing with OpenGL
+
+- Drawing an object in OpenGL would now look something like this:
+  ```cpp
+  // ..:: Initialization code :: ..
+  unsigned int VAO, VBO, EBO;
+  // 1. bind Vertex Array Object
+  glBindVertexArray(VAO);
+  // 2. copy our vertices array(CPU) in a vertex buffer(GPU) for OpenGL to use
+  glBindBuffer(GL_ARRAY_BUFFER, VBO);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+  // 3. copy our index array(GPU) in a element buffer(CPU) for OpenGL to use
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+  // 4. then set the vertex attributes pointers(LAYOUT)
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+  glEnableVertexAttribArray(0);
+  // ..:: Drawing code (in render loop) :: ..
+  glUseProgram(shaderProgram);
+  glBindVertexArray(VAO);
+  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0)
+  // Unbinding VAO
+  glBindVertexArray(0);
+  ```
+- Basic overview of how things are drawn in OpenGL without vertex array buffer are a bit more complex but we can visualise it like this:
+  - We bind our shader then we set up our uniforms.
+  - Next we bind our vertex buffer and set up the layout of that vertex buffer and enable it.
+  - Finally we bind our index buffer and then we call GL draw elements.
 
 ## Dealing with Errors in OpenGL
 
@@ -272,7 +288,7 @@
 - A texture is a 2D image (even 1D and 3D textures exist) used to add detail to an object.
 - Each vertex should have a texture coordinate associated with them that specifies what part of the texture image to sample from. Fragment interpolation then does the rest for the other fragments.
   - Texture pixel is also known as _texel_.
-- Next to images, textures can also be used to store a large collection of arbitrary data to send to the shaders.
+- Apart from images, Textures can also be used to store a large collection of arbitrary data to send to the shaders.
 - Retrieving the texture color using texture coordinates is called **sampling**.
   - Texture sampling has a loose interpretation and can be done in many different ways. It is thus our job to tell OpenGL how it should _sample_ its textures.
 - Co-ordinate axis for texture is s,t,r i.e. equivalent to x,y,z.
@@ -290,8 +306,10 @@
   - We use stb_image to actually load the texture image, so we give it a file path and it will basically give us a pointer to a buffer of RGBA pixels.
   - We then take that pixel array and upload it to the GPU using OpenGL because it is our graphics specification so we use OpenGL to send that data into the GPU as a texture.
   - Finally we can modify our shaders to actually read that texture when it's drawing so the pixel shader(the fragment shader) is going to read from that texture memory and actually work out which pixel should be which color as per that texture.
+    ![Reading image in STB_LIB vs OpenGL](read-img.png "Reading image in STB_LIB vs OpenGL")
 - We load our image -> we create a texture in OpenGL -> we then have to bind that texture when it's time to render -> we modify our shader to work on the bounded texture -> we also sample that texture in our shader -> finally when we draw an object we should see that texture.
 - We assign the texture to a Texture Unit. One can think of texture units as slots for textures that come together as a bundle. These generally hold about 16 textures, and allow the fragment shader to work with all 16 textures at the same time. To insert our texture in the slot of a Texture Unit, we simply need to activate that Texture.
+  ![Texture Unit](texture-unit.png "Texture Unit")
 - Blending is essentially how we render something that is partially or fully transparent.
   - Blending determines how we actually combine our output color(color we output from our fragment shader) with what is already in our target buffer(the buffer our fragment shader is drawing to).
   - Blending in OpenGL by default is disabled so we enable it in 3 steps:
@@ -316,7 +334,7 @@
     - We have our computer monitor and we have our window open where we're actually rendering all of our graphics and that is between -1 and 1. However what we usually have is like a 3d world or maybe a 2d object somewhere on our screen and we need to convert it into that space that's what a projection matrix does. But at the end of the day every single vertex position of all of the objects gets mapped into a space that is between -1 and 1.
   - Orthographic and prespective projection are the two major projection.
     ![Projection](projection.png "Projection")
-- MVP(Model View Projection Matrix): The model, view and projection matrices are three separate matrices. Model maps from an object's local coordinate space into world space, view from world space to camera space, projection from camera to screen.
+- MVP(Model View Projection Matrix): The model, view and projection matrices are three separate matrices. Model maps from an object's local coordinate space into world space, view from world space to camera space, projection from camera to clip space.
   - The view matrix is supposedly supposed to represent our camera's transform(translation, rotation and scale) and the model matrix is supposed to represent our object's transform(translation, rotation and scale).
   - We multiply all the 3 matrices together and then multiply that resulting matrix with our vertex position (the vertex position of our geometry which is stored inside our vertex buffer) and that transforms that vertex into where it should be on our actual screen.
     - In OpenGL the multiplication happen PxVxM because it's column major but in direct3D which is row-major it's MxVxP.

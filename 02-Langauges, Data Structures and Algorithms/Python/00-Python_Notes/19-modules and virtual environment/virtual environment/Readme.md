@@ -4,9 +4,9 @@
 
 - To create a virtual environment we can also use:
 
-  - `py -m venv virtualenv_name ` // to create a new virtual environment named virtualenv_name
+  - `py -m venv virtualenv_name` // to create a new virtual environment named virtualenv_name
 
-- Once created we need to activate them to start using that env.
+- Once created we need to activate it to start using that env for this just run the activate file in the env folder through shell.
 
   - `.\virtualenv_name\Scripts\activate`
   - `(virtualenv_name)$ deactivate` // to deactivate the env

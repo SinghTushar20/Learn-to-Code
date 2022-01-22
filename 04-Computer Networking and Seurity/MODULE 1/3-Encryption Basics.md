@@ -5,13 +5,13 @@
 
 - **Symmetrical Encryption**: Symmetric encryption is a type of encryption where **only one key (a secret key) is used to both encrypt and decrypt electronic information**.
 
-  - AES(Advanced Encryption Standard), DES(Data Encryption Standard), Triple DES (3DES), Blowfish, RC4, RC5, RC6.
+  - AES(Advanced Encryption Standard), DES(Data Encryption Standard)(Hacked), Triple DES (3DES), Blowfish, RC4, RC5, RC6.
   - Symmertical encryption is fast and strong.
 
-## Asymmetrical Encryption
+## Asymmetrical/Public-Private Key Encryption
 
 - **Asymmetrical Encryption**: Asymmetric Encryption uses **two distinct, yet related keys**. The Public Key, is used for encryption and the other, the Private Key, is for decryption.
-
+  - It is also known as Public-Private Key Encryption.
   - Mostly it is used to Key-Exchange and agreement.
   - RSA(Rivest-Shamir-Adleman), ECC(Elliptic Curve Cryptosystem), DH(Diffie-Hellman), El Gamal.
   - The Public-Private key pair is generated at the same time as they are mathematically related and the encryption done by one key can be decrypted by it's other paired key only.
@@ -22,15 +22,26 @@
   - Asymmetrical encryption is Scalable, has better key distribution, can help with authentication and nonrepudiation but is also slow and mathematically intensive.
     ![RSA Key Equivalence](../images/rsa-key-equivalence.png "RSA Key Equivalence")
 
+## Hybrid Systems
+
+- Symmetric and Asymmetric encryptions are great ways for encryption but both has it's strength and weaknesses so to get the best result we often use both of them.
+- Asymmetric encryption is used to enchange the common key to be used for symmetric encryption and symmetric encryption is used for encrypting and decrypting the data to be send or recieved respectively.
+- Examples of such hybrid systems are SSL/TLS.
+
 ## Hash functions
 
-- **Hash Function**: Hash functions take a string of any size and convert it into a gibrish value of fixed size.
-
-  - When passed same input it will always produce same output.
-  - Hash functions are irreversible.
+- **Hash Function**: Hash functions take a string of any size and convert it into a gibrish value of fixed size called digest.
+  - Main properties of hash function:
+    - Preimage resistance (having an output you cannot find an input that produces that output)
+    - 2nd preimage resistance (having an input and output pair you cannot find another input that produces the same output, also called weak-collision resistance)
+    - Collision resistance (finding two inputs that produce the same output is not possible, also called strong collision resistance).
+  - When passed same input it will always produce same output/digest (Collision-resistant).
+  - Hash functions are irreversible (Pre-image resistant).
     - The best thing about Hash function is that it's only one way i.e. one can't get the string back from the gibrish. (**This assures integrity**)
   - Hash functions and digital signatures help us **provide the authentication and legitimacy** of the senders and the receivers.
-  - MD2, MD4, MD5, HAVAL, SHA, SHA-1, SHA-256, SHA-384, SHA-512, Tiger
+  - MD2, MD4, MD5(hacked), HAVAL, SHA, SHA-1, SHA-256, SHA-384, SHA-512, Tiger
+  - Hash function always end up giving a string of fixed length this mean we have a fixed co-domain set(because a string of fixed length are limited based on permutation) but the domain is infinite as we can have infinite strings.
+    - So Theoritically it is true that collision can happen in hashing But in practice, the difference is that it might take you constant brute force computation till the universe die.
   - **HMAC (Hash Based Message Authentication Code)**: In this we include a pre shared secret into the message which is to be send and then hash it. **This assures Authentication and Integrity**.
     ![HMAC](../images/hmac.png "HMAC")
     - One can't alter the message as the message with the key is hashed not just the message. eg. JWT token.
@@ -47,9 +58,13 @@
   - To check if the digital signature is valid, the digitally signed message is decrypted using the public key to get the hash value that can later be verified.
   - Digital signature ensures that the software or whatever recived came from the correct publisher and also protect the message from altering after being published or sent.
 
+- Digital signatures are nearly similar to HMACs i.e they both employ a hash function and a shared key. The difference lies in the keys i.e HMACs use symmetric key(same copy) while Signatures use asymmetric (two different keys).
+
 ## SSL(Secure Socket Layer) and TLS(Transfer Layer Security)
 
 - These are cryptographic protocols designed to provide communication security over a network or internet.
+  - eg. To protect the hypertext transfer in a network when TLS/SSL is used we get HTTPS.
+  - NOTE that SSL/TLS are just cryptographic protocols and can be used with anything not just https.
 - SSL is older and TLS is new encryption method.
 - TLS is most widely used method for encrypting data on the internet.
 - TLS provides privacy as it encrypt the data, data integrity as it uses message authentication code(MAC) when communicating between 2 applications.
@@ -66,10 +81,13 @@
 - Diffe-Hellman key exchange assures the _forward secracy_ property.
   - _forward secracy_ means if the server we are communicating with is compromised and their private key is compromised it still doesn't mean that all of the previous sessions cannot be decrypted as a new private key is generated in each session.
 - The combination/set of cryptographic algorithims that help secure a network connection is called _ciphersuites_.
+
+  - The set of algorithms that cipher suites usually contain include: a key exchange algorithm, a bulk encryption algorithm, and a message authentication code (MAC) algorithm, sometimes it can also include signatures and an authentication algorithm to help authenticate the server and or client.
+
 - **SSL Striping**: SSL stripping is a technique by which a website is downgraded from https to http.
   - The attack is used to circumvent the security which is enforced by SSL certificates on https sites. This is also known as SSL downgrading.
-  - The attacks expose the website to eavesdropping and data manipulation by forcing it to use insecure HTTP rather than secured https. Victim is made to believe that the data he is exchanging is secure and encrypted when transmitted over the network to the server. But the fact is there is no authenticity of data that is traveling because the encryption is stripped off and the data is in plaintext vulnerable to MITM.
-  - When you enter the URL on the browser, the first connection will be a plain http before it gets redirected to secure https. The attacker takes advantage of this small window by using the SSL strip attack.
+  - The attacks expose the website to eavesdropping and data manipulation by forcing it to use insecure HTTP rather than secured https. Victim is made to believe that the data he is exchanging is secure and encrypted when transmitted over the network to the server. But the fact is there is no authenticity of data that is traveling because the encryption is stripped off and the data is in plaintext vulnerable to MITM(Man in the Middle) attack.
+  - When you enter the URL on the browser without https, the first connection will be a plain http before it gets redirected to secure https. The attacker takes advantage of this small window by using the SSL strip attack.
     ![SSL Striping](../images/ssl-striping.png "SSL Striping")
   - The point to be noted here is the attacker's machine and the server will have SSL encrypted connection.
   - MITM(Man-in-the-middle attack) is possible only when the attacker and victim are on the same network.
@@ -91,6 +109,13 @@
 - Security in https is achieved at the cost of processing time because setting up of a secure session is done before the actual hypertext exchange between server and browser.
   - Setting up secure session basically mean Web Server and Web Browser needs to exchange encryption keys using Certificates before actual data can be transferred.
   - When you access a website with HTTPS, web server will start the task to invoke SSL/TLS and protect the communication.
-  - The server sends a message back to the client indicating a secure session should be established and the client in response sends it security parameters(hand shaking phase). The server authenticates the client by sending it a digital certificate and if the client descide to trust the server the process continues sometimes the server also want the client to send the digital certificate too, for mutual authentication(not often).
-    - A Handshake is an automated process of negotiation between two participants(here server and client) through the exchange of information that establishes the protocols of a communication link at the start of the communication, before full communication begins.
+  - The server sends a message back to the client indicating a secure session should be established and the client in response sends it security parameters like the ciphersuites it can use, the server selects one of the ciphersuites(hand shaking phase). The server then authenticates itself to the client by sending it a digital certificate and if the client descide to trust the server the process continues, sometimes the server also want the client to send the digital certificate too, for mutual authentication(not often).
+    - A Handshake is an automated process of negotiation between two participants(here server and client) through the exchange of information that establishes the protocols of a communication link, before full communication begins.
   - The client generates a symmetric session key using symmetric encryption like AES and encrypts it using server's public key. This public key is send to the server and they both uses the symmetric key to encrypt the data they send back and forth.
+- The handshake end result is a cyphersuite that can be seen in the website's security window.
+  - eg. if it says "TLS_AES_128_GCM_SHA256" it means:
+    - TLS was used for the handshake
+    - AES is the encryption cipher used
+    - The keys are 128-bit in size
+    - GCM is the mode of operation (CBC uses pipeline stalls, which isn't desired for the web)
+    - SHA256 is used for the HMAC to derive the master secret (which will be the shared secret) from the pre-master secret (used to make the handshake a wee bit less complex when dealing with key sizes)

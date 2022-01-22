@@ -8,18 +8,39 @@
 
   - These can have tens or even hundreds of individual modules/packages that can provide a wide range of functionality.
 
-- To tell python that a certain folder is a package we have to put an **init**.py in it.
+- To tell python that a certain folder is a package we have to put an **init.py** in it.
 - Consider package as a folder that contain 1 or more modules.
 
 ## Creating a Simple API using FastAPI:
 
 - Import FastAPI.
-- Create an app instance.
-- Write a path operation decorator (like @app.get("/")).
-- Write a path operation function (like def root():).
-- Run the development server (like uvicorn main:app --reload).
+- Create a FastAPI instance to make the backend app.
+- Write a path operation/route decorator (like @app.get("/")).
+- Write a path operation/route function (like def root():).
+- Run the development server so that the backend app start listenting to a specific port (like uvicorn main:app --reload).
 
-## API
+- FastAPI has built in support for docs which can be found with the /docs or /redoc url.
+
+## Path Operation aka Routes
+
+- A route/path operation has 3 main component:
+
+  - Method: HTTP method
+  - Path: The path url
+  - Function: The function to be called when the specific path is called with the specific http method
+
+- The function can now have some parameters with them this can either be the payload that comes with the request or it can be from the url.
+
+  - The url can have variables in them basically paramitarised urls.
+  - The request can have a payload attached with it like in POST request.
+  - We have to manage these using and do the specific task in the function so the function should know these variables and hence sometimes the function takes in these variables.
+
+- To validate the type of data send with the request we use the Schema.
+
+## API and Backend
+
+- The backend app is just an app running on a server that listens to a specific port and whenever it gets some request, it work on that request and return the required response back.
+- The backend can work in 2 major ways it can either work on the request do something with the database and send back the data or it can also send back the HTML file.
 
 - API is just an app in the server that provides you with it's functionality.
 - The server interaction is all about request and response, the server listen for a request and when it get's a request it will give back a response according to it.
@@ -37,16 +58,19 @@
 
 - CRUD application is Create, Read, Update, Delete
 
-  - Create -> POST
+  - Create -> POST (because data is also send to server in POST request)
   - Read -> GET
   - Update -> PUT/PATCH
   - Delete -> DELETE
+    ![CRUD Operations](./images/crud.png "Crud")
 
 - **Payload** is the part of transmitted data that is the actual intended message. The payload can be sent or received in various formats, including JSON.
 
 - **Status Codes** are the codes that tell us what is the status of our request to the server.
 
 - We should also consider cases when our API will throw an exception and implement them reasonably by sending required data and status code explaining exception.
+
+- It is a good practice to create API using REST(Representational State Transfer) architecture.
 
 ## Database
 
@@ -58,7 +82,26 @@
   - Relational (SQL based) eg. MYSQL, POSTGRESQL
   - NoSQL eg. MongoDB, DynamoDB
 
-- SQL is the language used to communicate with the DBMS.
+## Relational Database
+
+- In a realational database we have the concept of tables, where each table contains the record or the data we wanna save, now each table will have the rows which are basically data entry and columns that will tell what kind of data each entry have.
+
+  - Table represent the subject or event in an application.
+    - eg Users, Posts etc.
+  - Each Column represent different attribute.
+  - Each Row represent different entries in the table.
+  - Database have different datatype for the attributes.
+
+- **Primary key** is a column or group of columns that uniquely identifies each row in a table.
+
+  - Table can have one and only one primary key.
+
+- _UNIQUE_ Constraint can be applied to any column to make sure every record have a unique value for that column.
+- _NOT NULL_ Constraint can be applied to any column to make sure that the column is never left blank.
+
+  - When a column is left blank it has a null value.
+
+- SQL(Structured Query language) is the language used to communicate with the DBMS in Relational database.
 
 - We use a `DB driver` to interact with DB from our program, using SQL.
 

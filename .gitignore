@@ -1,6 +1,7 @@
 .vscode
 .obsidian
-/Web Dev
 /Handbooks
 node_modules
 /05-Web Development
+/06-AppDevelopment
+/Interview Notes

@@ -1,4 +1,5 @@
 # To run this use the command python -m uvicorn 0-Notes.notes_main:app --reload
+from urllib.request import Request
 from fastapi import FastAPI, Response, status
 from fastapi.exceptions import HTTPException
 from fastapi.params import Body
@@ -20,14 +21,14 @@ def root():
 
 # Using parameters in GET request but remember the parameters will be string if you want int then convert it inside the function
 @app.get("/message/{user}")
-# Every request callback function has a response variable with it which will have the status code, we can also change that status code. 
-def get_message(user: str, response: Response):
+# Every request callback function has a request and response class with it, response object of that class have the status code and some other important information, we can also change that status code. 
+def get_message(user: str, res: Response, req: Request):
     if user in users.keys():
         messages: dict = users[user]
         return messages
     else:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"Username {user} not found")
-        # response.status_code = status.HTTP_404_NOT_FOUND
+        # res.status_code = status.HTTP_404_NOT_FOUND
         # return {"message": f"User not found"}
 
 @app.get("/message")

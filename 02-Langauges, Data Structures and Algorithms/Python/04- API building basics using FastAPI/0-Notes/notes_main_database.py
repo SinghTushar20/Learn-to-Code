@@ -50,7 +50,7 @@ class Message(BaseModel):
 
 @app.post("/message", status_code= status.HTTP_201_CREATED)
 def post_message(message: Message):
-    # BAD make our DB vulnurable to SQL injection
+    # BAD, this makes our DB vulnurable to SQL injection
     # cur.execute(f"""INSERT INTO "Messages" (sender,reciever,message) VALUES ('{message.sender}', '{message.reciver}', '{message.message}')""")
     cur.execute("""INSERT INTO "Messages" (sender,reciever,message) VALUES (%s, %s, %s)""",(message.sender, message.reciver, message.message))
     conn.commit()

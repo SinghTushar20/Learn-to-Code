@@ -4,7 +4,7 @@
 - Raster VS Vector graphics
   - Raster graphics are composed of pixels.
   - Vector graphics are composed of paths/shapes.
-    ![Raster VS Vector Graphics](raster-vector.png "Raster VS Vector Graphics")
+    ![Raster VS Vector Graphics](./img/raster-vector.png "Raster VS Vector Graphics")
 - Vector graphics represent an image as a list of the geometric shapes that it contains. The shapes can also have attributes, such as the thickness of a line or the color that fills a shape etc.
 - More rich and detailed images uses Raster graphics.
 - A **pixel** is the smallest addressable element of a picture represented on a screen, a physical point in a picture.

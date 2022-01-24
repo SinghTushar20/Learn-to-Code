@@ -174,7 +174,7 @@
   - Mipmapping increase the number of pixels.
   - It is used in 3D scenes to decrease the time required to render a scene.
   - It is a technique where a high-resolution texture is downscaled and filtered so that each subsequent mip level is a quarter of the area of the previous level.
-    ![mip mapping](mipmap.webp "Mipmapping")
+    ![mip mapping](./img/mipmap.webp "Mipmapping")
   - Three.js and the GPU already handle all of this, and you can just set what filter algorithm to use. There are two types of filter algorithms: the minification filter and the magnification filter.
   - _Minification filter_ happens when the pixels of texture are smaller than the pixels of the render i.e. the texture is too big for the surface it covers.
   - _Magnification filter_ happens when the pixels of texture are bigger than the pixels of the render i.e. the texture is too small for the surface it covers.
@@ -198,7 +198,7 @@
   - MeshPhysicalMaterial
   - PointsMaterial (For particales)
 - Normals are information that contains the direction of the outside of the face. They can be used for lightning, reflection, refraction etc.
-  ![normals](normals.png "Normals")
+  ![normals](./img/normals.png "Normals")
 - MeshStandardMaterial uses PBR.
 - ShaderMaterial and RawShaderMaterial can be used to create custom materials.
 - Environment Map is an image of what's surrounding the scene. It can be used for reflection and refraction but also for general lighting.

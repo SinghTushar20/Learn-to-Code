@@ -100,7 +100,7 @@
 - The graphics pipeline can be divided into two large parts
   - Transforming the 3D coordinates into 2D coordinates.
   - Transforming the 2D coordinates into actual colored pixels.
-- ![Graphics Pipeline in OpenGL](graphic-pipeline.png "Graphics Pipeline in OpenGL")
+- ![Graphics Pipeline in OpenGL](./img/graphic-pipeline.png "Graphics Pipeline in OpenGL")
   - NOTE: the blue sections represent sections where we can inject our own shaders.
   - The first part of the pipeline is the _vertex shader_ that takes as input a single vertex.
     - A **vertex** is a collection of data per 3D coordinate. This vertex's data is represented using **vertex attributes** that can contain any data say position, texture coordinates, normals, colors, tangents etc.
@@ -166,7 +166,7 @@
   - Create a shader in GPU memory -> Fill that memory with a shader value(Copy shader from CPU to GPU) -> Compile that shader. (We do these steps with both the shaders).
   - Then we create a shaderProgram in the GPU that will run both the vertex and fragment shader, then we attach both the vertex and the fragment shader to that shader program finally we link that program.
   - Whenever we wanna use those shaders we just use that shaderProgram.(`glUseProgram`)
-    ![Basic Shader Code](basic-shader-code.png "Basic Shader Code")
+    ![Basic Shader Code](./img/basic-shader-code.png "Basic Shader Code")
 
 ## GLSL
 
@@ -306,14 +306,14 @@
   - We use stb_image to actually load the texture image, so we give it a file path and it will basically give us a pointer to a buffer of RGBA pixels.
   - We then take that pixel array and upload it to the GPU using OpenGL because it is our graphics specification so we use OpenGL to send that data into the GPU as a texture.
   - Finally we can modify our shaders to actually read that texture when it's drawing so the pixel shader(the fragment shader) is going to read from that texture memory and actually work out which pixel should be which color as per that texture.
-    ![Reading image in STB_LIB vs OpenGL](read-img.png "Reading image in STB_LIB vs OpenGL")
+    ![Reading image in STB_LIB vs OpenGL](./img/read-img.png "Reading image in STB_LIB vs OpenGL")
 - We load our image -> we create a texture in OpenGL -> we then have to bind that texture when it's time to render -> we modify our shader to work on the bounded texture -> we also sample that texture in our shader -> finally when we draw an object we should see that texture.
 - We assign the texture to a Texture Unit. One can think of texture units as slots for textures that come together as a bundle. These generally hold about 16 textures, and allow the fragment shader to work with all 16 textures at the same time. To insert our texture in the slot of a Texture Unit, we simply need to activate that Texture.
-  ![Texture Unit](texture-unit.png "Texture Unit")
+  ![Texture Unit](./img/texture-unit.png "Texture Unit")
 - Blending is essentially how we render something that is partially or fully transparent.
   - Blending determines how we actually combine our output color(color we output from our fragment shader) with what is already in our target buffer(the buffer our fragment shader is drawing to).
   - Blending in OpenGL by default is disabled so we enable it in 3 steps:
-    ![Blending in Opengl](blending-opengl.png "Blending in Opengl")
+    ![Blending in Opengl](./img/blending-opengl.png "Blending in Opengl")
 
 ## Debug UI or Real Time Rendering
 
@@ -333,7 +333,7 @@
     - A normalized space is literally a coordinate system between -1 and 1. The window(does not matter resolution, size of window) let's just say we render in full-screen so the left side will be -1, the right side will be 1, the bottom will be -1 and the top will be 1.
     - We have our computer monitor and we have our window open where we're actually rendering all of our graphics and that is between -1 and 1. However what we usually have is like a 3d world or maybe a 2d object somewhere on our screen and we need to convert it into that space that's what a projection matrix does. But at the end of the day every single vertex position of all of the objects gets mapped into a space that is between -1 and 1.
   - Orthographic and prespective projection are the two major projection.
-    ![Projection](projection.png "Projection")
+    ![Projection](./img/projection.png "Projection")
 - MVP(Model View Projection Matrix): The model, view and projection matrices are three separate matrices. Model maps from an object's local coordinate space into world space, view from world space to camera space, projection from camera to clip space.
   - The view matrix is supposedly supposed to represent our camera's transform(translation, rotation and scale) and the model matrix is supposed to represent our object's transform(translation, rotation and scale).
   - We multiply all the 3 matrices together and then multiply that resulting matrix with our vertex position (the vertex position of our geometry which is stored inside our vertex buffer) and that transforms that vertex into where it should be on our actual screen.
@@ -357,5 +357,5 @@
 - Batching is the act of grouping tasks together, so you do them all at once, instead of switching between tasks that take place in different programs or areas.
   - How we can batch geometry together or how we can render more than one piece of geometry in a single draw call is what batching and batch rendering mean.
   - Batching means we batch together all of the geometry into a single vertex buffer and index buffer and then simply draw that once.
-    ![Batch Rendering](batch-rendering.png "Batch Rendering")
+    ![Batch Rendering](./img/batch-rendering.png "Batch Rendering")
 - Remember batch rendering don't promise drawing everything in a single draw call it's just a way to reduce the excessive amount of draw calls that helps in performance.

@@ -37,6 +37,10 @@
 
 - To validate the type of data send with the request we use the Schema.
 
+- Many a times our API will have many http requests so to handle them we make use of router.
+  - We basically put the routes group in a seperate folder called router.
+  - In the folder, we create different files according to the routes category and use APIRouter to create them router's request, in the main the app (FastAPI instance) is going to include them using include_router.
+
 ## API and Backend
 
 - The backend app is just an app running on a server that listens to a specific port and whenever it gets some request, it work on that request and return the required response back.
@@ -54,7 +58,8 @@
 - Postman is a good tool for giving requests.
 
 - A `schema` is metadata that tells us how our data is structured. Schema is used for validation of data in a http method where the API is provided with a some data like POST request or send some data using GET request.
-- We do this using **pydantic** module in python.
+
+  - We do this using **pydantic** module in python.
 
 - CRUD application is Create, Read, Update, Delete
 
@@ -90,7 +95,7 @@
     - eg Users, Posts etc.
   - Each Column represent different attribute.
   - Each Row represent different entries in the table.
-  - Database have different datatype for the attributes.
+  - Database have different datatype for the attributes which helps in database schema or validation.
 
 - **Primary key** is a column or group of columns that uniquely identifies each row in a table.
 
@@ -102,36 +107,86 @@
   - When a column is left blank it has a null value.
 
 - SQL(Structured Query language) is the language used to communicate with the DBMS in Relational database.
+  - It is important to sanitize user's given information before running a SQL command using it as this makes our DB vulnurable to SQL injection.
+- We use a `DB driver` to interact with DB from our program aka code, using SQL.
 
-- We use a `DB driver` to interact with DB from our program, using SQL.
+  - DB driver help us to connect and interact to database using our desired programming language and the SQL.
+  - DB driver are different for different languages for a particular DBMS.
 
-- ORM(Object Relational Mapper) is a layer of abstraction that sits on top of DB. We perform all DB operation with python code and ORM is gonna convert them to SQL and interact with the DB for us.
-- We can define a table as Python Object model and queries are made using python only.
-- We will still need DB driver for interaction.
+- ORM(Object Relational Mapper) is a layer of abstraction that sits on top of DB. We perform all DB operation with the programming language(python code) and ORM is gonna convert them to SQL and interact with the DB for us using DB driver.
+
+  - We can define a table as Object model and queries are made using programming language only.
+  - eg. SqlAlchemy
+  - We will still need DB driver for interaction with DB.
 
 - An ORM maps between an Object Model in code and a Relational Database. An ODM maps between an Object Model in code and a Document Database. PostgreSQL is not an ORM, it's a Relational Database, more specifically, a SQL Database. MongoDB is not an ODM, it's a Document Database.
-- An ORM use a SQL database Driver to translate the object notation to relational notation and an ODM use a JSON or JSONB api to translate the Object notation to Document notation.
 
-- Schema(Pydantic) model VS ORM Model
-- Schema model defines structure of a request and response, how each parameter should look like, eg. message should be string, id should be int etc. Though they are completly optional they build strict typing kinda thing and help so that user doesn't give a bullshit request.
+  - An ORM use a SQL database Driver to translate the object notation to relational notation and an ODM use a JSON or JSONB api to translate the Object notation to Document notation.
 
+  ![ORM VS Raw SQL](./images/orm-raw-sql.png "ORM VS Raw SQL")
+
+- **Schema model VS ORM Model**
+  - Schema model defines structure of a request and response, how each parameter should look like, eg. message should be string, id should be int etc.
+    - Though they are completly optional they build strict typing kinda thing and help so that user doesn't give a bullshit request and we don't end up sending back some extra data in the response.
   - ORM model defines the column of our table, within our database.
-  - It is used to do CRUD operation.
+    - It is used to do CRUD operation.
 
 ## Passwords in Database
 
 - We store password by hasing them (we can't get the password back from the hashed form), so that even if the Database is infiltreted the theif can't do anything with the _hashed form of passwords_.
 
+  - Sometimes the attacker have the hash of some common passwords in a table format called rainbow table so this again makes our passwords insecure in case the database is compromised so we often use salts and pepper.
+
 - A **cryptographic salt** is made up of random bits added to each password instance before its hashing. Salts create unique passwords even in the instance of two users choosing the same passwords. So even if 2 users have the same password their salt will be different which is added to the password and then they are hashed.
 
-- Many a times our API will have many http requests so to handle them we put them in a seperate folder called router in which we create different files according to the table and use APIRouter to create them router's request, in the main the app (FastAPI instance) is going to include them using include_router.
+- A **pepper** is a secret added to an input such as a password during hashing with a cryptographic hash function. This value differs from a salt in that it is not stored alongside a password hash, but rather the pepper is kept separate in some other medium, such as a Hardware Security Module.
+
+  - A pepper performs a comparable role to a salt or an encryption key, but while a salt is not secret (merely unique) and can be stored alongside the hashed output, a pepper is secret and must not be stored with the output.
+
+  - Where the salt only has to be long enough to be unique per user, a pepper should be long enough to remain secret from brute force attempts to discover it (NIST recommends at least 112 bits).
 
 ## Authentication and Security
 
-- Authentication can be done using JWT token, When the user's credentials are verified the API will assign a JWT(JSON Web Token) token to the user's system along with the response and will every request the Token will also be attached to it in it's header, the API will first check if the token is vaild or not, if it is then it will process the requests.
+- There are 2 main ways to tackle authentication:
 
-- Token is not encrypted so be careful what data you have in payload.
+  - **Session-based Authentication**
 
-- A Token is made of 3 majors -> **Header**(Metadata -> Algo and TokenType), **Payload**(Data), **Verify Signature**(It takes the header, payload and the secret code that only we have access to, paas it to a hashing algo and give us a hashed signature)
+    - The server will create a session(created and stored in server) for the user after the user logs in. The session id is then stored on a cookie on the user’s browser.
+    - While the user stays logged in, the cookie would be sent along with every subsequent request.
+    - The server can then compare the session id stored on the cookie against the session information stored in the memory to verify user’s identity and sends response with the corresponding state.
 
-- Token is not encrypted so be careful what data you have in payload, anyone can see and manipulate that data but again, the API will handle it. Now if someone change the payload, at the API side the API is gonna create the test signature from current payload, header and secret key the hash algo will give a different signature and the access will be denied.
+    ![Session Based Authentication](./images/session-based.png "Session Based Authentication")
+
+  - **Token-based Authentication**
+
+    - Token-based authentication technologies enable users to enter their credentials once and receive a unique encrypted string of random characters in exchange.
+    - You can then use the token to access protected systems instead of entering your credentials all over again. The digital token proves that you already have access permission.
+    - Use cases of token-based authentication include RESTful APIs that are used by multiple frameworks and clients.
+    - In the token based application, the server creates JWT with a secret and sends the JWT to the client. The client stores the JWT (usually in local storage) and includes JWT in the header with every request. The server would then validate the JWT with every request from the client and sends response.
+
+    ![Token Based Authentication](./images/token-based.png "Token Based Authentication")
+
+  - The major difference is that the user’s state is not stored on the server in case of token-based authentication while in case of session-based authentication the state is stored in server.
+    - As the state is stored inside the token on the client side, most of the modern web applications use JWT for authentication for reasons including scalability and mobile device authentication.
+
+- Authentication using JWT token is stateless meaning there is nothing on our backend related to weather the user is logged in or logged out.
+
+  - When the user's credentials are verified the API will assign a JWT(JSON Web Token) token to the user's system(browser) then with every request the Token will also be attached to request header, the API will first check if the token is vaild or not, if it is then it will process the requests.
+    ![JWT Token Based Authentication](./images/jwt-token-auth.png "JWT Token Based Authentication")
+
+- A Token is made of 3 majors
+
+  - **Header**: Metadata -> Algo and TokenType
+  - **Payload**: Data
+  - **Verify Signature**: It's basically a HMAC. It takes the header, payload and the secret code that only we(server) have access to, pass it to a hashing algo and give us a hashed signature.
+
+- JWT Token is not encrypted so be careful what data you have in payload.
+
+  - Care must be taken to ensure only the necessary information is included in JWT and sensitive information should be omitted to prevent XSS(Cross-site scripting) security attacks.
+
+- Token is not encrypted so be careful what data you have in payload, anyone can see and manipulate that data but again, the API will handle it.
+
+  - If someone change the payload and think it can manipulate the data, at the server side the API is gonna create a test signature from current payload, header and secret key the hash algo will give a different signature than the one that came with the request and the access will be denied.
+  - If the secret is compromised then things are going south for the API.
+
+- One drawback with JWT is that the size of JWT is much bigger comparing with the session id stored in cookie because JWT contains more user information.

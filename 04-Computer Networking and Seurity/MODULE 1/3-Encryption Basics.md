@@ -31,6 +31,7 @@
 ## Hash functions
 
 - **Hash Function**: Hash functions take a string of any size and convert it into a gibrish value of fixed size called digest.
+
   - Main properties of hash function:
     - Preimage resistance (having an output you cannot find an input that produces that output)
     - 2nd preimage resistance (having an input and output pair you cannot find another input that produces the same output, also called weak-collision resistance)
@@ -45,10 +46,15 @@
   - **HMAC (Hash Based Message Authentication Code)**: In this we include a pre shared secret into the message which is to be send and then hash it. **This assures Authentication and Integrity**.
     ![HMAC](../images/hmac.png "HMAC")
     - One can't alter the message as the message with the key is hashed not just the message. eg. JWT token.
-  - Messages are stored in the hashed format in the databases so even if the database is hacked the passwords will not be revelead but it has a loop hole i.e. if the hacker send a password and the generated hash matched with any hash value in DB then the hacker will know the password, that's why the passwords are not directly hashed they are first added with the salt and then hashed.4
+  - Messages are stored in the hashed format in the databases so even if the database is hacked the passwords will not be revelead but it has a loop hole i.e. if the hacker send a password and the generated hash matched with any hash value in DB then the hacker will know the password, that's why the passwords are not directly hashed they are first added with the salt and then hashed.
     - Salt is random data that is used as an additional input to a one-way function that hashes data, a password or passphrase. Salts are used to safeguard passwords in storage.
     - Salts create unique passwords even in the instance of two users choosing the same passwords.
     - Salts help us mitigate hash table attacks by forcing attackers to re-compute them using the salts for each user.
+  - A **pepper** is a secret added to an input such as a password during hashing with a cryptographic hash function. This value differs from a salt in that it is not stored alongside a password hash, but rather the pepper is kept separate in some other medium, such as a Hardware Security Module.
+
+    - A pepper performs a comparable role to a salt or an encryption key, but while a salt is not secret (merely unique) and can be stored alongside the hashed output, a pepper is secret and must not be stored with the output.
+
+    - Where the salt only has to be long enough to be unique per user, a pepper should be long enough to remain secret from brute force attempts to discover it (NIST recommends at least 112 bits).
 
 ## Digital Signatures
 

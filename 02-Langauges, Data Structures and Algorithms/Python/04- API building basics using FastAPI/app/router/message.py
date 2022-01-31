@@ -2,7 +2,7 @@ from fastapi import Response, status, Depends, APIRouter
 from fastapi.exceptions import HTTPException
 from typing import List
 from sqlalchemy.orm import Session
-from .. import models, schemas
+from .. import models, schemas, auth_check
 from ..database import get_db
 
 # Using a router prefix can come in handy so every route will be prefixed by /message, and tag will improve the readibility in docs
@@ -12,7 +12,7 @@ router = APIRouter(
 )
 
 @router.get("/", response_model=List[schemas.MessageResponse])
-def get_message(response: Response, db: Session = Depends(get_db)):
+def get_message(response: Response, db: Session = Depends(get_db), current_user = Depends(auth_check.get_current_user)):
     messages = db.query(models.Messages).all()
     print(messages)
     if not messages:
@@ -21,7 +21,7 @@ def get_message(response: Response, db: Session = Depends(get_db)):
         return messages
 
 @router.get("/{sender}", response_model=List[schemas.MessageResponse])
-def get_message(sender: str, response: Response, db: Session = Depends(get_db)):
+def get_message(sender: str, response: Response, db: Session = Depends(get_db), current_user = Depends(auth_check.get_current_user)):
     messages = db.query(models.Messages).filter(models.Messages.sender == sender).all()
     print(messages)
     if len(messages) == 0:
@@ -31,7 +31,7 @@ def get_message(sender: str, response: Response, db: Session = Depends(get_db)):
 
 
 @router.post("/", status_code= status.HTTP_201_CREATED, response_model=schemas.Message)
-def post_message(message: schemas.Message, db: Session = Depends(get_db)):
+def post_message(message: schemas.Message, db: Session = Depends(get_db), current_user = Depends(auth_check.get_current_user)):
     db_msg = models.Messages(**message.dict())
     db.add(db_msg)
     db.commit()
@@ -40,7 +40,7 @@ def post_message(message: schemas.Message, db: Session = Depends(get_db)):
 
 
 @router.delete("/delete/{sender}/all", status_code = status.HTTP_204_NO_CONTENT)
-def del_all_posts(sender: str, response:Response, db: Session = Depends(get_db)):
+def del_all_posts(sender: str, response:Response, db: Session = Depends(get_db), current_user = Depends(auth_check.get_current_user)):
     result = db.query(models.Messages).filter(models.Messages.sender == sender)
     if not result.all() == []:
         result.delete(synchronize_session = False)
@@ -50,7 +50,7 @@ def del_all_posts(sender: str, response:Response, db: Session = Depends(get_db))
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"Username {sender} not found")
 
 @router.delete("/delete/{sender}/{id}", status_code = status.HTTP_204_NO_CONTENT)
-def del_post(sender: str, id: int, db: Session = Depends(get_db)):
+def del_post(sender: str, id: int, db: Session = Depends(get_db), current_user = Depends(auth_check.get_current_user)):
     result = db.query(models.Messages).filter(models.Messages.sender == sender, models.Messages.id == id)
     if not result.first() == None:
         result.delete(synchronize_session = False)
@@ -62,7 +62,7 @@ def del_post(sender: str, id: int, db: Session = Depends(get_db)):
 
 
 @router.put("/update/{sender}/{id}", status_code = status.HTTP_202_ACCEPTED, response_model=schemas.MessageUpdate)
-def upd_post(sender: str, id: int, message: schemas.MessageUpdate, db: Session = Depends(get_db)):
+def upd_post(sender: str, id: int, message: schemas.MessageUpdate, db: Session = Depends(get_db), current_user = Depends(auth_check.get_current_user)):
     result = db.query(models.Messages).filter(models.Messages.sender == sender)
     if not result.first() == None:
         result.update(message.dict(), synchronize_session = False)

@@ -126,10 +126,16 @@
   ![ORM VS Raw SQL](./images/orm-raw-sql.png "ORM VS Raw SQL")
 
 - **Schema model VS ORM Model**
+
   - Schema model defines structure of a request and response, how each parameter should look like, eg. message should be string, id should be int etc.
     - Though they are completly optional they build strict typing kinda thing and help so that user doesn't give a bullshit request and we don't end up sending back some extra data in the response.
   - ORM model defines the column of our table, within our database.
     - It is used to do CRUD operation.
+
+- With SQL/Relational database one also want to create a relationship between the tables.
+  - A foreign key is a set of attributes in a table that refers to the primary key of another table.
+  - The foreign key links these two tables.
+  - This refers to as one-many relationship as the primary key in one table can have many rows in another table, eg. a email that is unique can have many posts.
 
 ## Passwords in Database
 

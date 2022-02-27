@@ -1,8 +1,0 @@
-Create a dictionary with "morning", "noon", "evening" and "night" as keys.
-Add a list of actions correspondingly.
-Say: 
-morning : ['get ready', 'milk', 'exercise', 'breakfast']
-...
-As program runs, it fetches time of day.
-Correspond time to morning / noon / evening /night 
-and print the action

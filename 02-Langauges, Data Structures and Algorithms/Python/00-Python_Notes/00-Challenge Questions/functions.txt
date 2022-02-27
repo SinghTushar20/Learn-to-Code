@@ -1,6 +1,0 @@
-* Define a function to calculate and return average of 3 numbers.
-* Define a function to return True if number is even otherwise False.
-* Define a function to return the value of hypotenuse given the values of 2 sides of a right angled triangle as parameters.
-* Define a function to convert temperature from celcius to farenhite and another for vice-versa.
-* Define a function to accept a number as parameter and to check whether it is a prime number or not. If prime return true otherwise false.
-* Convert a number from decimal to binary form using recursion

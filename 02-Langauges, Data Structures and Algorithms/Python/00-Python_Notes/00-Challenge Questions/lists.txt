@@ -1,4 +1,0 @@
-Find the second smallest value in list.
-Define a function to compare 2 lists for being equal in size and values. Return True/False.
-Find the symmetric difference between 2 lists.
-Implement Shell sort.

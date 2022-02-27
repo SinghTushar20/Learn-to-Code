@@ -1,7 +1,0 @@
-Present a menu like:
-1. Circle
-2. Triangle
-3. Rectange
-4. Star
-5. Dog
-Take choice from user and generate a corresponding drawing on a canvas. Save the canvas as an image.

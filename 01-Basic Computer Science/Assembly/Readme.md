@@ -7,7 +7,7 @@
 
 - The only main difference is addresses VS data.
   - Data is stored in memory at a specific address and the address is usually represented in some hex value but to assembly this is still just a number.
-  - It's how we treat the data that we're representing that makes it a character or a string or an array for us
+  - It's how we treat the data that we're representing that makes it a character or a string or an array for us.
 
 ## More on Assembly
 
@@ -15,7 +15,50 @@
 - In order to build useful programs in assembly we need to use the linux `system calls` provided by the kernel.
   - These system calls are a library built into the operating system to provide functions such as reading input from a keyboard and writing output to the screen.
 - When you invoke a system call the kernel will immediately suspend execution of your program. It will then contact the necessary drivers needed to perform the task you requested on the hardware and then return control back to your program.
+
   - Drivers are called drivers because the kernel literally uses them to drive the hardware.
+
+- We can accomplish this all in assembly by loading EAX with the **function number (operation code OPCODE)** we want to execute and **filling the remaining registers with the arguments we want to pass to the system call**.
+
+  - A software interrupt is requested with the INT instruction and the kernel takes over and calls the function from the library with our arguments.
+
+- Assembly language gives you direct control of the system's resources. This involves setting processor registers, accessing memory locations, and interfacing with other hardware elements.
+
+  - This requires a significantly deeper understanding of exactly how the processor and memory work.
+
+- The tool chain is the name for the process of taking code written by a human and converting it into something that the computer can directly execute.
+  - This includes the compiler, or assembler, the linker, the loader, and the debugger.
+
+## Basic Processor Architecture
+
+- The basic components of a computer include a Central Processing Unit (CPU), Primary Storage or Random Access Memory (RAM), Secondary Storage, Input/Output devices (e.g., screen, keyboard, mouse), and an interconnection referred to as the Bus.
+
+- Programs and data are typically stored on secondary storage (e.g., disk drive or solid state drive).
+
+  - When a program is executed, it must be copied from secondary storage into the primary storage or main memory (RAM).
+  - The CPU executes the program from primary storage or RAM.
+
+- The x86-64 architecture supports a specific set of data storage size elements, all based on powers of two.
+
+  - The supported storage sizes are as follows:
+    ![Data sizes](./images/data-sizes.png "Data sizes")
+
+  - Lists or arrays (sets of memory) can be reserved in any of these types.
+  - These storage sizes have a direct correlation to variable declarations in high-level languages (e.g., C, C++, Java, etc.).
+
+- The CPU chip includes a number of functional units, including the Arithmetic Logic Unit (ALU) which is the part of the chip that actually performs the arithmetic and logical calculations.
+  - In order to support the ALU, processor registers and cache memory are also included “on the die” (term for inside the chip).
+- A CPU register, or just register, is a temporary storage or working location built into the CPU itself (separate from memory).
+  - Computations are typically performed by the CPU using registers.
+  - There are sixteen, 64-bit General Purpose Registers (GPRs).
+    - A GPR register can be accessed with all 64-bits or some portion or subset accessed.
+      ![General Purpose Registors](./images/gprs.png "General Purpose Registors")
+    - In addition to the GPRs, there is a special register, **rip**, which is used by the CPU to point to the next instruction to be executed.
+      - Specifically, since the rip points to the next instruction, that means the instruction being pointed to by rip, and shown in the debugger, has not yet been executed.
+      - This is an important distinction which can be confusing when reviewing code in a debugger.
+    - The flag register, `rFlags`, is used for status and CPU control information.
+      - The rFlag register is updated by the CPU after each instruction and not directly accessible by programs.
+      - This register stores status information about the instruction that was just executed.
 
 ## Skeleton of a assembly program
 

@@ -30,7 +30,7 @@ header({
 });
 
 console.log(`${italic(
-  `Hey there it is me Dheeraj and this is my first cli, i have created the notes of the cli as well and to read them you can refer the readme of this package on github links of which is provided below.`
+  `Hey there it is me Dheeraj and this is my first cli, i have created the notes of the cli as well and to read them you can refer the readme of this package on github, links of which is provided below.`
 )}
 
 ${githubClr(` GitHub `)}  ${dim(`https://github.com/dheeraj120501`)}

@@ -12,9 +12,9 @@ To use this CLI run the following command:
 cli-basics
 ```
 
-## NOTES
+# NOTES
 
-**1. CLI BASICS**
+## **1. CLI BASICS**
 
     👉 All one need to know to create a CLI from node is a package.json to make our repo a node package.
     The bin in package.json will have the commands that our shell can execute when we install the package in our system.
@@ -30,19 +30,23 @@ cli-basics
 
     💥 npm link and unlink will work when we execute them from the package repo.
 
-- It is important to note that the CLI tool is infact a node package, it's just that this package doesn't export anything so we can't import it in any other project of our's but it is a command line tool. Afterall a package is just there to help us like a software or app in our device.
+- It is important to note that the CLI tool is infact a node package, it's just that this package doesn't export anything so we can't import it in any other project of our's but it is a command line tool.
 
-- `#!` is called a shebang or hashbang, it tells to the kernel which interpreter is to be used to run the commands present in the file. If you run a script without specifying the interpreter, the shell will spawn another instance of itself and try to run the commands in the script.
+  - Afterall a package is just there to help us like a software or app in our device.
 
-- Whenever we change something in a package we have already published, then we need to update it's version before updating it again.
+- `#!` is called a shebang or hashbang, it tells to the kernel which interpreter is to be used to run the commands present in the file.
+
+  - If you run a script without specifying the interpreter, the shell will spawn another instance of itself and try to run the commands in the script.
+
+- Whenever we change something in a package we have already published, we need to update it's version before updating it again.
 
 - **Version synamtics**: **Major.Minor.Patch**, we can update our package version using the command `npm version <patch/minor/major>` in our package directory.
 
-- We can import package.json and it will convert the entire content into a javascript object.
+- We can _import package.json_ and it will convert the entire content into a javascript object.
 
 - **CLI UX**(User Experience): This include things that make the user's life easy like author's info, readme(for user to know how to use the cli), license, keywords(words from which people can find the package in npm), clearing the console, welcome header while using cli, as cli is little to no UI but we can make it clean with color and info. alerts using module like chalk and log-symbols.
 
-**2. Node Package**
+## **2. Node Package**
 
 - We can create a node package/project using `npm init` command.
 
@@ -90,4 +94,11 @@ cli-basics
 
 - Testing the module is also important so that bugs and glitches are minimized.
 
-- Some good packages for creating a node cli tool are chalk, log-symbol, or framework like meow, oclif etc.
+- **Exiting a node Process**: Whenever a node program runs a process is created now every node program has a global object called process which gives us the info and control over that node process.
+
+  - With the process object we can also exit the program using `process.exit()` and can handle the exiting using `process.on('exit', _)` listener.
+  - Node docs says we shouldn't exit the process this way instead we set the exit code whenever we wanna exit and let the program exit itself properly later by examining the exit code we can determine the situation.
+  - exit code 0 mean the exit happen properly while 1 mean it was a fatal error there are more which we can see in the docs.
+
+- Doing everything from zero is great for learning but for a large project things might go out of hand real quick so we should use frameworks.
+  - Some good packages for creating a node cli tool are chalk, log-symbol, commander, sade or framework like meow, oclif etc.

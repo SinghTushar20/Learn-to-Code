@@ -212,6 +212,29 @@
 
   - Most of the time typedef is used in competetive programming to make things fast. eg. typedef long long l.
 
+- **Modern way of giving types and alias name**: The syntax `using ll = long long;` is more modern.
+
+  - For a simple type definition it does exactly the same as `typedef long long ll;`
+  - But using supports template parameters, so the concept is more powerful.
+
+  ```cpp
+    template<typename T>
+    using MyList = std::list<T, MyAlloc<T>>;
+
+    MyList<Sometype> myList;
+  ```
+
+  - Since a _typedef does not support template parameters_ we would need to 'misuse' a struct, something like this:
+
+  ```cpp
+    template<typename T>
+    struct MyList {
+      typedef std::list<T, MyAlloc<T>> type;
+    };
+
+    MyList<Sometype>::type myList;
+  ```
+
 - Explicit type conversion => (newtype)var OR newtype(var)
 
   - This doesn't change type of original variable but it creates a soft copy with new type which we can either store somewhere or use to print.

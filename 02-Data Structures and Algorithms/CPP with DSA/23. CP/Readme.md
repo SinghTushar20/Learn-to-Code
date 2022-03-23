@@ -131,6 +131,29 @@ Even though the variable b is of type long long, both numbers in the expression 
   typedef long long ll;
   ```
 
+- **Modern way of giving types and alias name**: The syntax `using ll = long long;` is more modern.
+
+  - For a simple type definition it does exactly the same as `typedef long long ll;`
+  - But using supports template parameters, so the concept is more powerful.
+
+  ```cpp
+    template<typename T>
+    using MyList = std::list<T, MyAlloc<T>>;
+
+    MyList<Sometype> myList;
+  ```
+
+  - Since a _typedef does not support template parameters_ we would need to 'misuse' a struct, something like this:
+
+  ```cpp
+    template<typename T>
+    struct MyList {
+      typedef std::list<T, MyAlloc<T>> type;
+    };
+
+    MyList<Sometype>::type myList;
+  ```
+
 - Macro is another way it means that _certain strings in the code will be changed before the compilation_. In C++, macros are defined using the `#define` keyword.
 
 - A macro can also have parameters which makes it possible to shorten loops and other structures.

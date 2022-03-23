@@ -108,7 +108,7 @@
 - Autocomplete feature in searching.(Trie)
 - Auto-completing the text and spells checking.(Trie)
 
-## Hash Table
+## Hash Table(Dictionary)
 
 - Data stored in databases is generally of the key-value format which is done through hash tables.
 - Social network “feeds”.
@@ -138,6 +138,26 @@
 - Playing Cards with your friends (Insertion Sort).
 - sort() — uses IntroSort (a hybrid of Quicksort, Heapsort, and Insertion Sort), Faster than qsort().
 
+## Backtracking (Brute Force Algo)
+
+- Suppose we are coding a chess-playing algorithm and at a certain point, the algorithm finds that a set of steps fails to win. In this situation, the algorithm will reverse back to the safe state and try another possible set of steps.
+- Sudoku solver
+- 2048 game
+- N-Queen Problem
+
+## DP (Optimization over plain reccursion)
+
+- A. Real-life examples
+  - In Google Maps to find the shortest path between the source and the series of destinations (one by one) out of the various available paths.
+  - In networking to transfer data from a sender to various receivers in a sequential manner.
+- B. Applications in Computer science
+  - Multi-stage graph
+  - Traveling salesman problem
+  - Largest common subsequence - to identify similar videos used by youtube
+  - Optimal search binary tree- to get optimized search results.
+  - Single source shortest path- Bellman-Ford Algorithm.
+  - Document Distance Algorithms- to identify the extent of similarity between two text documents used by Search engines like Google, Wikipedia, Quora, and other websites.
+
 ## Greedy Algorithms
 
 - Dijkstra algorithm.
@@ -151,23 +171,3 @@
 ## PRIM’S and KRUSKAL’S
 
 - Used for finding the minimum spanning trees.
-
-## DP
-
-- A. Real-life examples
-  - In Google Maps to find the shortest path between the source and the series of destinations (one by one) out of the various available paths.
-  - In networking to transfer data from a sender to various receivers in a sequential manner.
-- B. Applications in Computer science
-  - Multi-stage graph
-  - Traveling salesman problem
-  - Largest common subsequence - to identify similar videos used by youtube
-  - Optimal search binary tree- to get optimized search results.
-  - Single source shortest path- Bellman-Ford Algorithm.
-  - Document Distance Algorithms- to identify the extent of similarity between two text documents used by Search engines like Google, Wikipedia, Quora, and other websites.
-
-## Backtracking
-
-- Suppose we are coding a chess-playing algorithm and at a certain point, the algorithm finds that a set of steps fails to win. In this situation, the algorithm will reverse back to the safe state and try another possible set of steps.
-- Sudoku solver
-- 2048 game
-- N-Queen Problem

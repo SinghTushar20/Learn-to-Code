@@ -53,3 +53,8 @@
 - Space complexity = O(1)
 
 - Odd-Even sort is mainly used on parallel processors with local interconnections for running local tasks.
+
+## For merge sort
+
+- Merge sort algorithm is called 2-way merging.
+- If we merge K files at a time then we call it K-way merging.

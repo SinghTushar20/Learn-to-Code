@@ -1,3 +1,17 @@
+/*
+Problem: Find the nth fibonacci number 
+Fibonacci Sequence: 1, 1, 2, 3, 5, 8 ...
+Complexity Analysis
+- Brute force
+  - Time: 2^n
+  - Space: n
+- Memoization
+  - Time: n
+  - Space: n
+- Tabulation
+  - Time: n
+  - Space: n
+*/
 #include <bits/stdc++.h>
 using namespace std;
 

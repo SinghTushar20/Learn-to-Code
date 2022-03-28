@@ -28,18 +28,6 @@ Uses iteration
 
 ## **Complexity Analysis**
 
-### Fibonacci
-
-- Brute force
-  - Time: `2^n`
-  - Space: `n`
-- Memoized
-  - Time: `n`
-  - Space: `n`
-- Tabulation
-  - Time: `n`
-  - Space: `n`
-
 ### Grid Traveler
 
 n: number of rows

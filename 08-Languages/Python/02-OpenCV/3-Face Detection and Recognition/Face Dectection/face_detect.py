@@ -1,7 +1,7 @@
 #pylint:disable=no-member
 import cv2 as cv
 
-img = cv.imread('../Resources/Photos/group 1.jpg')
+img = cv.imread('../../Resources/Photos/group 1.jpg')
 cv.imshow('Group of 5 people', img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)

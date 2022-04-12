@@ -24,6 +24,36 @@
     - **Clustering** is typically done when labeled data is not available. This is an _unsupervised_ learning problem.
       - For example, Google Photos uses clustering to group pictures of the same person together.
 
+## AI VS ML VS DL
+
+- AI is science that empowers computers to mimic human intelligence such as decision making, text processing, and visual perception.
+
+  - AI is a broader field (i.e. the big umbrella) that contains several subfield such as machine learning, robotics, and computer vision.
+
+  - ![AI and ML](./images/ai-ml.png "AI and ML")
+
+- Machine Learning is a subfield of Artificial Intelligence that enables machines to improve at a given task with experience.
+
+  - It is important to note that all machine learning techniques are classified as Artificial Intelligence ones. However, not all Artificial Intelligence could count as Machine Learning since some basic Rule-based engines could be classified as AI but they do not learn from experience therefore they do not belong to the machine learning category.
+
+- Deep learning is a specialized field of machine learning that relies on training of Deep Artificial Neural Networks (ANN) using a large dataset such as images or texts.
+
+  - ANNs are information processing models inspired by the human brain. The human brain consists of billions of neurons that communicate with each other using electrical and chemical signals and enables humans to see, feel, and make descision.
+  - ANN works by mathematically mimicking the human brain and connecting multiple "artificial" neurons in a multilayered fashion.
+  - The more hidden layers added to network, the deeper the network gets.
+
+- ML process
+
+  1. Selecting the model to train.
+  2. Manually performing feature extraction.
+
+- DL process
+
+  1. Selecting the architecture of the network.
+  2. Features are automatically extracted by feeding in the training data (such as images) along with the target class (label).
+
+- ![ML and DL process](./images/ml-dl.png "ML and DL process")
+
 ## Classifying ML problems
 
 - ![Classifying ML problems](./images/ml-problems.png "Classifying ML problems")
@@ -101,3 +131,7 @@
   - If a weight is 0, then its corresponding feature does not contribute to the model.
 - In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called **empirical risk minimization**.
   - _loss_ is a number indicating how bad the model's prediction was on a single example.
+
+## DATA PROCESSING
+
+-

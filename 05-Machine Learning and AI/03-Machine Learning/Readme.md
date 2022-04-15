@@ -132,6 +132,14 @@
 - In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called **empirical risk minimization**.
   - _loss_ is a number indicating how bad the model's prediction was on a single example.
 
-## DATA PROCESSING
+## DATA PREPROCESSING
 
--
+- Data Preprocessing Tools
+  - Importing the libraries
+  - Importing the dataset
+  - Taking care of missing data
+  - Encoding categorical data
+    - Encoding the Independent Variable
+    - Encoding the Dependent Variable
+  - Splitting the dataset into the Training set and Test set
+  - Feature Scaling

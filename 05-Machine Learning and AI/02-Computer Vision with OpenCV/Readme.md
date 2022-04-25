@@ -85,3 +85,30 @@
 
   - These drawing operations are therefore applied after the more complex computer vision operations used for image understanding.
   - While OpenCV’s drawing functions may not have directly helped us locate, detect, or recognize an object in an image, they did allow us to visualize the results, which is still part of our image processing/computer vision pipeline.
+
+- Basic Image Processing Techniques
+
+  - Basic image transformations
+    - Rotation
+    - Translation
+    - Scaling
+    - Flipping
+    - Cropping
+  - Image arithmetic
+    - When working with images, we need to keep in mind the limits of our color space and data type.
+    - There is a difference between OpenCV and NumPy addition. NumPy will perform **modulo arithmetic** and **wrap around**. OpenCV, on the other hand, will perform **clipping** and ensure pixel values never fall outside the range [0, 255]
+  - Bitwise operations
+    - Bitwise operations operate in a binary manner and are represented as grayscale images.
+    - A given pixel is turned “off” if it has a value of zero, and it is turned “on” if the pixel has a value greater than zero.
+  - Masking
+    - For this we take the mask (array of all 1's) and do bitwise AND with the image.
+    - The key point of masks is that they allow us to focus our computation only on regions of the image that interests us (ROI).
+    - Using a mask allows us to focus only on the portions of the image that interests us.
+  - Splitting and Merging an image into its respective channels
+
+- The role of color spaces in image processing and computer vision is important, yet complicated at the same time.
+
+  - Some color spaces are:
+    - RBG
+    - HSV
+    - L\*a\*b\*

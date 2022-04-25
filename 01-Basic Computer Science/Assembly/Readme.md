@@ -1,10 +1,11 @@
 ## Introduction
 
-- Assembly is the essentially the human readable version of machine code
+- Assembly language is a “low-level” language and provides the basic instructional interface to the computer processor.
+- It is as close to the processor as you can get as a programmer.
+- Assembly is the essentially the human readable version of machine code.
 - While machine code is just 1's and 0's in giant files, assembly is the text version of what those ones and zeros mean.
 - A byte operation might mean move eax ebx and so on.
 - Everything in assembly is just binary (1's and 0's) there is no concept of data type and other HLL stuff.
-
 - The only main difference is addresses VS data.
   - Data is stored in memory at a specific address and the address is usually represented in some hex value but to assembly this is still just a number.
   - It's how we treat the data that we're representing that makes it a character or a string or an array for us.
@@ -28,6 +29,14 @@
 
 - The tool chain is the name for the process of taking code written by a human and converting it into something that the computer can directly execute.
   - This includes the compiler, or assembler, the linker, the loader, and the debugger.
+
+## Why Learn Assembly
+
+- Gain a Better Understanding of Architecture Issues.
+- Understanding the Tool Chain
+- Improve Algorithm Development Skills
+- Improve Understanding of Functions/Procedures
+- Gain an Understanding of I/O Buffering
 
 ## Basic Processor Architecture
 
@@ -168,5 +177,8 @@
 
 ## Note
 
-- [] in assembly are used for dereferencing and is used for both data and bss variables
-- [] are not used with registers
+- [] in assembly are used for dereferencing and is used with pointers.
+
+## Addressing Mode
+
+- The only way to access memory is with the brackets ([]'s). Omitting the brackets will not access memory and instead obtain the address of the item.

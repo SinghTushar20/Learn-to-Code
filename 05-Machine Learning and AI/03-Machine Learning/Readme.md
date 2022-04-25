@@ -1,3 +1,25 @@
+## Data Analysis
+
+- Data analysis is a process of inspecting, cleansing, transforming, and modelling data with the goal of discovering useful information, informing conclusions, and supporting decision-making.
+
+- Data Analysis Process
+
+  - Asking Questions
+  - Data Wrangling/Preprocessing
+  - Exploratory Data Analysis
+  - Drawing Conclusions
+  - Communicating Results
+
+- Data Preprocessing Tools
+
+  - Importing the dataset
+  - Taking care of missing data
+  - Encoding categorical data
+    - Encoding the Independent Variable
+    - Encoding the Dependent Variable
+  - Splitting the dataset into the Training set and Test set
+  - Feature Scaling
+
 ## What is ML
 
 - ML is the process of training a piece of software, called a **model**, to make useful predictions using a data set. This predictive model can then serve up predictions about previously unseen data.
@@ -130,16 +152,4 @@
   - The goal of training a linear model is to determine the ideal weight for each feature.
   - If a weight is 0, then its corresponding feature does not contribute to the model.
 - In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called **empirical risk minimization**.
-  - _loss_ is a number indicating how bad the model's prediction was on a single example.
-
-## DATA PREPROCESSING
-
-- Data Preprocessing Tools
-  - Importing the libraries
-  - Importing the dataset
-  - Taking care of missing data
-  - Encoding categorical data
-    - Encoding the Independent Variable
-    - Encoding the Dependent Variable
-  - Splitting the dataset into the Training set and Test set
-  - Feature Scaling
+  - _loss_ is a number indicating how bad the model's prediction was on a single example.\

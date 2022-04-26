@@ -14,3 +14,4 @@
 - NumPy’s array class is called **ndarray**. It is also known by the alias **array**.
   - NumPy arrays have a fixed size at creation and are homogeneous.
   - The elements in a NumPy array are all required to be of the same data type, and thus will be the same size in memory.
+- Numpy arrays are faster, occupy less memory and is much convenient than python list.

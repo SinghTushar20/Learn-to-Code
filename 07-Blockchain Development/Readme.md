@@ -11,7 +11,7 @@
   - It guarantees the fidelity and security of a record of data and generates trust without the need for a trusted third party.
   - Decentralized blockchains are immutable, which means that the data entered is irreversible.
 
-- Unlinke traditional database instead of storing data in tables, a blockchain structures its data into chunks (blocks) that are strung together.
+- Unlike traditional database instead of storing data in tables, a blockchain structures its data into chunks (blocks) that are strung together.
 
   - Each block in the chain is given an exact time stamp when it is added to the chain.
   - Blocks have certain storage capacities and, when filled, are closed and linked to the previously filled block, forming a chain of data known as the blockchain.

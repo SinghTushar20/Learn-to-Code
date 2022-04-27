@@ -37,6 +37,9 @@
 - Improve Algorithm Development Skills
 - Improve Understanding of Functions/Procedures
 - Gain an Understanding of I/O Buffering
+- Understand Compiler Scope
+- Introduction to Multi-processing Concepts
+- Introduction to Interrupt Processing Concepts
 
 ## Basic Processor Architecture
 
@@ -55,9 +58,10 @@
   - Lists or arrays (sets of memory) can be reserved in any of these types.
   - These storage sizes have a direct correlation to variable declarations in high-level languages (e.g., C, C++, Java, etc.).
 
-- The CPU chip includes a number of functional units, including the Arithmetic Logic Unit (ALU) which is the part of the chip that actually performs the arithmetic and logical calculations.
+- The CPU chip includes a number of functional units, including the **Arithmetic Logic Unit** (ALU) which is the part of the chip that actually performs the arithmetic and logical calculations.
   - In order to support the ALU, processor registers and cache memory are also included “on the die” (term for inside the chip).
-- A CPU register, or just register, is a temporary storage or working location built into the CPU itself (separate from memory).
+- A **CPU register**, or just register, is a temporary storage or working location built into the CPU itself (separate from memory).
+
   - Computations are typically performed by the CPU using registers.
   - There are sixteen, 64-bit General Purpose Registers (GPRs).
     - A GPR register can be accessed with all 64-bits or some portion or subset accessed.
@@ -68,6 +72,25 @@
     - The flag register, `rFlags`, is used for status and CPU control information.
       - The rFlag register is updated by the CPU after each instruction and not directly accessible by programs.
       - This register stores status information about the instruction that was just executed.
+  - XMM Registers are a set of dedicated registers used to support 64-bit and 32-bit floating-point operations and Single Instruction Multiple Data (SIMD) instructions.
+    - The SIMD instructions allow a single instruction to be applied simultaneously to multiple data items.
+    - Typical applications include some graphics processing and digital signal processing.
+    - They are a total of 16 XMM registers each of 128 bits starting from xmm0 till xmm15.
+    - Some of the more recent X86-64 processors support 256-bit XMM registers.
+    - XMM registers are also used to support the Streaming SIMD Extensions (SSE).
+
+- Cache Memory is a small subset of the primary storage or RAM located in the CPU chip.
+  - If a memory location is accessed, a copy of the value is placed in the cache. Subsequent accesses to that memory location that occur in quick succession are retrieved from the cache location (internal to the CPU chip).
+  - Comparatively, if a value is in cache, it would be much faster to access that value.
+  - A cache hit occurs when the requested data can be found in a cache, while a cache miss occurs when it cannot.
+  - Successive generations of CPU chips have increased cache memory and improved cache mapping strategies in order to improve overall performance.
+  - Current chip designs typically include an L1 cache per core and a shared L2 cache. Many of the newer CPU chips will have an additional L3 cache.
+
+## Data Representation
+
+- Data representation refers to how information is stored within the computer.
+- There is a specific method for storing integers which is different than storing floating-point values which is different than storing characters.
+- If not specified, a number is in base-10. Additionally, a number preceded by 0x is a hex value.
 
 ## Skeleton of a assembly program
 

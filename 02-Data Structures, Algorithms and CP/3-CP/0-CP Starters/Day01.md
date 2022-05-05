@@ -1,10 +1,18 @@
 ## Prefix Sum Array
 
+- `Computing range sum queries in constant time over a fixed 1D array.`
+
 - Given an array arr[] of size n, its prefix sum array is another array prefixSum[] of the same size, such that the value of prefixSum[i] is arr[0] + arr[1] + arr[2] … arr[i].
 
   - eg. if arr[] = {10, 20, 10, 5, 15} then prefixSum[] = {10, 30, 40, 45, 60}
 
 - As prefixSum[i] = prefixSum[i-1] + arr[i] and for base case prefixSum[0] = arr[0] so to fill the prefix sum array, we run through index 1 to last and keep on adding the present element with the previous value in the prefix sum array.
+
+- Given a matrix (or 2D array) a[][] of integers. Let prefix sum matrix be psa[][]. The value of psa[i][j] contains sum of all values which are above it or on left of it basically a sub-rectangle.
+
+- Prefix array is a very vital tool in competitive programming. This helps to minimize the repeated calculation done in an array and thus reduces the time complexity of your program.
+
+- If the given array A has all non-negative numbers the the prefix array constructed will be sorted in non-descending order.
 
 - Applications
   - Equilibrium index of an array: The equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes.

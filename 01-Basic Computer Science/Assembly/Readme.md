@@ -205,3 +205,39 @@
 ## Addressing Mode
 
 - The only way to access memory is with the brackets ([]'s). Omitting the brackets will not access memory and instead obtain the address of the item.
+
+## NASM Language
+
+- Like most assemblers, each NASM source line contains (unless it is a macro, a preprocessor directive or an assembler directive) some combination of the four fields.
+
+  - `label: instruction operands ; comment`
+  - Most of these fields are optional; the presence or absence of any combination of a label, an instruction and a comment is allowed.
+  - The operand field is either required or forbidden by the presence and nature of the instruction field.
+
+- NASM uses backslash (\\) as the line continuation character; if a line ends with backslash, the next line is considered to be a part of the backslash-ended line.
+
+- NASM places no restrictions on white space within a line.
+
+- The colon after a label is also optional.
+
+- Valid characters in labels are letters, numbers, \_, $, #, @, ~, ., and ?.
+
+  - The only characters which may be used as the first character of an identifier are letters, .(with special meaning), \_ and ?.
+  - An identifier may also be prefixed with a $ to indicate that it is intended to be read as an identifier and not a reserved word; thus, if some other module you are linking with defines a symbol called eax, you can refer to $eax in NASM code to distinguish the symbol from the register.
+  - Maximum length of an identifier is 4095 characters.
+
+- The instruction field may contain any machine instruction: Pentium and P6 instructions, FPU instructions, MMX instructions and even undocumented instructions are all supported.
+
+- Instruction operands may take a number of forms: they can be registers, described simply by the register name (e.g. ax, bp, ebx, cr0), or they can be effective addresses, constants or expressions.
+
+  - NASM does not use the gas–style syntax in which register names must be prefixed by a % sign
+
+- Pseudo-instructions are things which, though not real x86 machine instructions, are used in the instruction field anyway because that's the most convenient place to put them.
+
+  - The current pseudo-instructions are `DB`, `DW`, `DD`, `DQ`, `DT`, `DO`, `DY` and `DZ`; their uninitialized counterparts `RESB`, `RESW`, `RESD`, `RESQ`, `REST`, `RESO`, `RESY` and `RESZ`; the `INCBIN` command, the `EQU` command, and the `TIMES` prefix.
+
+- DB, DW, DD, DQ, DT, DO, DY and DZ are used, much as in MASM, to declare initialized data in the output file.
+
+- RESB, RESW, RESD, RESQ, REST, RESO, RESY and RESZ are designed to be used in the BSS section of a module: they declare uninitialized storage space.
+  - Each takes a single operand, which is the number of bytes, words, doublewords or whatever to reserve.
+  - The operand to a RESB–type pseudo-instruction is a critical expression.

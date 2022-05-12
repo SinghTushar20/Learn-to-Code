@@ -1,3 +1,0 @@
-Study the steganography Project and extend it to encrypt/decrypt the data before/after embedding/extracting.
-
-Convert the all puzzle games to OOP implementation.

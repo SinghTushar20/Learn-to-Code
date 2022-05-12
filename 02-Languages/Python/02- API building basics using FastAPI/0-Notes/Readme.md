@@ -11,6 +11,21 @@
 - To tell python that a certain folder is a package we have to put an **init.py** in it.
 - Consider package as a folder that contain 1 or more modules.
 
+## API (Application Programmer Interface)
+
+- All Interfaces define ways for us to interact, or communicate with an object, whether that object be physical, or software, and as a user of the interface, we don't need to understand the implementation.
+
+  - We don't need to know how it works. We just need to know what we've been allowed to change, or see.
+  - Interfaces abstract away the implementation.
+  - While the UI, or User Interface is made for the user of the application, API is made for the application programmer to use, and extend in their applications.
+
+- An API is a contract of sorts, it defines how it's expected to be used, and it defines what you can expect to receive by using it.
+
+  - They save you from needing to create everything yourself.
+  - We use them to avoid recreating the wheel. That is to say they assist us in accomplishing tasks that we need to perform by abstracting away a ton of work for us. The stuff that we developers shouldn't be worrying about.
+
+- These days, The term API is almost always used as a way to explain web-based APIs. In fact, it's probably safe to assume that when you hear API in the wild, it's most likely that people are talking about a web based API.
+
 ## Creating a Simple API using FastAPI:
 
 - Import FastAPI.

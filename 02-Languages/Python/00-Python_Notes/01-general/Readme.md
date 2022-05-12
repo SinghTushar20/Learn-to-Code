@@ -56,6 +56,10 @@
   2. `sys.stdout`: Standard Output Stream for transfer of data from the application to monitor.
   3. `sys.stderr`: Standard Error Stream for transfer of data from the application to monitor.
 
+## Python
+
+- Python does not enable you to code particularly close to the metal, as it is interpreted into C and then compiled.
+
 ## print()
 
 - A predefined function that takes program data and transfers it to sys.stdout for rendering.

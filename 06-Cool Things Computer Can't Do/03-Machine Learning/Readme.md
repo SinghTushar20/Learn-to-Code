@@ -52,7 +52,7 @@
 
   - AI is a broader field (i.e. the big umbrella) that contains several subfield such as machine learning, robotics, and computer vision.
 
-  - ![AI and ML](./images/ai-ml.png "AI and ML")
+    ![AI and ML](./img/ai-ml.png "AI and ML")
 
 - Machine Learning is a subfield of Artificial Intelligence that enables machines to improve at a given task with experience.
 
@@ -74,11 +74,11 @@
   1. Selecting the architecture of the network.
   2. Features are automatically extracted by feeding in the training data (such as images) along with the target class (label).
 
-- ![ML and DL process](./images/ml-dl.png "ML and DL process")
+  ![ML and DL process](./img/ml-dl.png "ML and DL process")
 
 ## Classifying ML problems
 
-- ![Classifying ML problems](./images/ml-problems.png "Classifying ML problems")
+![Classifying ML problems](./img/ml-problems.png "Classifying ML problems")
 
 ## What is RL
 
@@ -102,7 +102,7 @@
   - Eg. we can teach a model to recognize cats in photos, but it is difficult to know what features the model uses to determine something is in fact a cat.
   - This uncertainty can feel a little uncomfortable at times if you are used to determining every detail of your code's behavior.
 - To address the challenges of transitioning to ML, it is helpful to think of the ML process as an experiment.
-  ![ML Mindset](./images/ml-mindset.png "ML mindset")
+  ![ML Mindset](./img/ml-mindset.png "ML mindset")
 
 ## A good ML Problem
 
@@ -122,7 +122,7 @@
   - Decisions mean that the product should take action on the output of the model.
   - For example, a model that predicts the likelihood of clicking certain videos could allow a system to prefetch the videos most likely to be clicked.
   - ML is better at making decisions than giving you insights.
-    ![Prediction VS Descision](./images/pred-desc.png "Prediction VS Descision")
+    ![Prediction VS Descision](./img/pred-desc.png "Prediction VS Descision")
 
 ## Challenging ML problems
 
@@ -142,14 +142,22 @@
 
 - **Linear regression** is a method for finding the straight line or hyperplane that best fits a set of points.
 - By convention in machine learning, you'll write the equation for a model slightly differently:
-  ![Linear Regression](./images/linear-regression.png "Linear Regression")
+  ![Linear Regression](./img/linear-regression.png "Linear Regression")
   - A more sophisticated model might rely on multiple features, each having a separate weight (w1, w2, etc.).
     - For example, a model that relies on three features might look as follows:
-      ![Linear Regression](./images/linear-regression-more-feature.png "Linear Regression")
+      ![Linear Regression](./img/linear-regression-more-feature.png "Linear Regression")
 - An intercept or offset from an originis called **bias**.
   - Bias (also known as the bias term) is referred to as b or w0 in machine learning models.
 - A coefficient for a feature in a linear model, or an edge in a deep network is called **weight**.
   - The goal of training a linear model is to determine the ideal weight for each feature.
   - If a weight is 0, then its corresponding feature does not contribute to the model.
 - In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called **empirical risk minimization**.
-  - _loss_ is a number indicating how bad the model's prediction was on a single example.\
+  - _loss_ is a number indicating how bad the model's prediction was on a single example.
+
+## Machine Learning Models
+
+- [**Logistic Regression**](./Machine%20Learning%20Models/Logistic%20Regression.md)
+
+## End to end ML pipeline to solve real-world industry problems
+
+-

@@ -12,16 +12,16 @@
 
 ## More on Assembly
 
-- Assembly is the only interface a programmer has above the actual hardware is the kernel itself.
+- The only interface a programmer has above the actual hardware is the kernel itself.
 - In order to build useful programs in assembly we need to use the linux `system calls` provided by the kernel.
   - These system calls are a library built into the operating system to provide functions such as reading input from a keyboard and writing output to the screen.
 - When you invoke a system call the kernel will immediately suspend execution of your program. It will then contact the necessary drivers needed to perform the task you requested on the hardware and then return control back to your program.
 
   - Drivers are called drivers because the kernel literally uses them to drive the hardware.
 
-- We can accomplish this all in assembly by loading EAX with the **function number (operation code OPCODE)** we want to execute and **filling the remaining registers with the arguments we want to pass to the system call**.
+- We can accomplish this all in assembly by loading RAX with the **function number (operation code OPCODE)** we want to execute and **filling the remaining registers with the arguments we want to pass to the system call**.
 
-  - A software interrupt is requested with the INT instruction and the kernel takes over and calls the function from the library with our arguments.
+  - A software interrupt is requested with the `syscall` instruction and the kernel takes over and calls the function from the library with our arguments.
 
 - Assembly language gives you direct control of the system's resources. This involves setting processor registers, accessing memory locations, and interfacing with other hardware elements.
 

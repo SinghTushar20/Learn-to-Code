@@ -1,91 +1,93 @@
-## Augmented Reality
+# **Augmented Reality**
 
-- Augmented reality is an interactive experience of a real-world environment where the objects that reside in the real world are enhanced by computer-generated perceptual information, sometimes across multiple sensory modalities, including visual, auditory, haptic, somatosensory and olfactory.
+Augmented reality is an interactive experience of a real-world environment where the objects that reside in the real world are enhanced by computer-generated perceptual information, sometimes across multiple sensory modalities, including visual, auditory, haptic, somatosensory and olfactory.
 
-- In augmented reality, virtual information and objects are overlaid on the real world.
+In augmented reality, virtual information and objects are overlaid on the real world.
 
-- You can access the experience through AR glasses or via screens, tablets, and smartphones. This means users are not isolated from the real world and can still interact and see what’s going on in front of them.
+You can access the experience through AR glasses or via screens, tablets, and smartphones. This means users are not isolated from the real world and can still interact and see what’s going on in front of them.
 
-- Examples: Pokémon GO, ARLoopa, Ikea Place
+Examples: Pokémon GO, ARLoopa, Ikea Place
 
-- Types of Augmented Reality
+# **Types of Augmented Reality**
 
-  - Marker-Based Augmented Reality: This type of AR works on the concept of tracking and recognition. In this type of AR you need to have a marker through which you could perform the augmentation. In short this is augmenting Digital Objects upon a marker.
+Marker-Based Augmented Reality: This type of AR works on the concept of tracking and recognition. In this type of AR you need to have a marker through which you could perform the augmentation. In short this is augmenting Digital Objects upon a marker.
 
-  - Marker-Less Augmented Reality: This type of AR doesn’t requires any sort of marker. This AR can simply detect your plane and perform the augmentation of your digital objects. Examples: Ikea Place.
+Marker-Less Augmented Reality: This type of AR doesn’t requires any sort of marker. This AR can simply detect your plane and perform the augmentation of your digital objects. Examples: Ikea Place.
 
-    - Super Imposition AR: It is the augmented reality technique which uses object recognition. The augmented image replaces the original image either partially or fully. This type of AR is commonly used in the medical field to superimpose an X-ray onto a patient's body.
+- Super Imposition AR: It is the augmented reality technique which uses object recognition. The augmented image replaces the original image either partially or fully. This type of AR is commonly used in the medical field to superimpose an X-ray onto a patient's body.
 
-    - Location Based AR: It ties digital content and the experience it creates to a specific place. The objects are mapped out so that when a user's location matches the predetermined spot it is displayed on the screen.
+- Location Based AR: It ties digital content and the experience it creates to a specific place. The objects are mapped out so that when a user's location matches the predetermined spot it is displayed on the screen.
 
-    - Projection Based AR: It is a little different than the other types of markerless augmented reality. Namely, you don’t need a mobile device to display the content. Instead, light projects the digital graphics onto an object or surface to create an interactive experience for the user. Holograms! Projection-based AR is used to create 3D objects that can be interacted with by the user. It can be used to show a prototype or mockup of a new product, even disassembling each part to better show its inner workings.
+- Projection Based AR: It is a little different than the other types of markerless augmented reality. Namely, you don’t need a mobile device to display the content. Instead, light projects the digital graphics onto an object or surface to create an interactive experience for the user. Holograms! Projection-based AR is used to create 3D objects that can be interacted with by the user. It can be used to show a prototype or mockup of a new product, even disassembling each part to better show its inner workings.
 
-    - Outlining AR: Outlining AR recognizes boundaries and lines to help in situations when the human eye can’t. Outlining augmented reality uses object recognition to understand a user’s immediate surroundings. Think about driving in low light conditions or seeing the structure of a building from the outside.
+- Outlining AR: Outlining AR recognizes boundaries and lines to help in situations when the human eye can’t. Outlining augmented reality uses object recognition to understand a user’s immediate surroundings. Think about driving in low light conditions or seeing the structure of a building from the outside.
 
-## Development Tools
+# **Development Tools**
 
-- **Development Engines**
+## **Development Engines**
 
-  - Unity
-  - Unreal
-  - Godot
-  - Cry Engine
-  - Spark AR Studio
-  - Lens Studio
-  - Apertus VR
+- Unity
+- Unreal
+- Godot
+- Cry Engine
+- Spark AR Studio
+- Lens Studio
+- Apertus VR
 
-- ## **Software Development Kit**
-  - ARCore (Google)
-  - Kudan
-  - ARKit (Apple)
-  - Vuforia
-  - Maxst
-  - 8th Wall
-  - Lighship
-  - EasyAR
-  - Wikitude
+## **Software Development Kit**
 
-## Marker Based Augmented Reality
+- ARCore (Google)
+- Kudan
+- ARKit (Apple)
+- Vuforia
+- Maxst
+- 8th Wall
+- Lighship
+- EasyAR
+- Wikitude
 
-- Marker based AR works on the concept of both Recognition and Tracking.
+# **Marker Based Augmented Reality**
 
-- Here we need to have a marker through which you can perform the augmentation.
+Marker based AR works on the concept of both Recognition and Tracking.
 
-- Recognition is the identification of any object/media like face recognition.
+Here we need to have a marker through which you can perform the augmentation.
 
-- Tracking in AR finds a specific pattern or image that an app can recognize.
+Recognition is the identification of any object/media like face recognition.
 
-  - Once the pattern is found it is constantly tracked (the AR constantly track the position of the pattern in the real world space) so that the app can accurately place the digital object on the marker that is being tracked.
+Tracking in AR finds a specific pattern or image that an app can recognize.
 
-- Markers are generally square shaped and many people make use of black bordered image inside the main frame with white color inside of it. This helps to separate marker from the background frame. Internal graphics of marker are often displayed distorted or pixelated.
+- Once the pattern is found it is constantly tracked (the AR constantly track the position of the pattern in the real world space) so that the app can accurately place the digital object on the marker that is being tracked.
 
-  ![Marker](../img/marker.png "Marker")
+Markers are generally square shaped and many people make use of black bordered image inside the main frame with white color inside of it. This helps to separate marker from the background frame. Internal graphics of marker are often displayed distorted or pixelated.
 
-- When recognizing the image it is neccessary to apply image unwrapping. Image unwrapping is the process to unwrap a part of image.
+![Marker](../img/marker.png "Marker")
 
-  ![Image Unwrapping](../img/unwrap.png "Image Unwrapping")
+When recognizing the image it is neccessary to apply image unwrapping. Image unwrapping is the process to unwrap a part of image.
 
-- **AR System Architecture**
+![Image Unwrapping](../img/unwrap.png "Image Unwrapping")
 
-  ![AR System Architecture](../img/ar-sys-archi.png "AR System Architecture")
+## **Marker Based AR System Architecture**
 
-  - **`A More Detailed look at the system architecture.`**
+![AR System Architecture](../img/ar-sys-archi.png "AR System Architecture")
 
-  ![AR System Architecture](../img/ar-sys-archi2.png "AR System Architecture")
+**<u>`A More Detailed look at the system architecture.`</u>**
 
-  - Input to the **Image capturing module** is the live feed from the camera. This module analyses the camera feed, by analyzing each frame in the video.
+![AR System Architecture](../img/ar-sys-archi2.png "AR System Architecture")
 
-    - The module generates a binary image. These binary image are provided to the image processing module as the input.
+Input to the **Image capturing module** is the live feed from the camera. This module analyses the camera feed, by analyzing each frame in the video.
 
-  - Inputs to **Image Processing module** are the binary images from the Image caputring module. This module detects the AR using image processing techniques.
+- The module generates a binary image. These binary image are provided to the image processing module as the input.
 
-    - Detection of AR marker is essential to determine the position, where to place the virtual object.
-    - Once the AR marker is detected, its location is provided as an input to Tracking module.
+Inputs to **Image Processing module** are the binary images from the Image caputring module. This module detects the AR using image processing techniques.
 
-  - **Tracking module** is the core of the AR system. It calculates the realtive pose of the camera in real time.
+- Detection of AR marker is essential to determine the position, where to place the virtual object.
+- Once the AR marker is detected, its location is provided as an input to Tracking module.
 
-    - The term pose mean the 6D of position, that is the 3D location and orientation of an object.
-    - The calculated pose is provided as an input to rendering module.
+**Tracking module** is the core of the AR system. It calculates the realtive pose of the camera in real time.
 
-  - **Rendering module** have 2 inputs, the calculated pose from rendering module and the virtual object to be augmented.
-    - It combines the original image and the virtual components using the calculated pose and renders the augmented image on the display screen of the mobile device.
+- The term pose mean the 6D of position, that is the 3D location and orientation of an object.
+- The calculated pose is provided as an input to rendering module.
+
+**Rendering module** have 2 inputs, the calculated pose from rendering module and the virtual object to be augmented.
+
+- It combines the original image and the virtual components using the calculated pose and renders the augmented image on the display screen of the mobile device.

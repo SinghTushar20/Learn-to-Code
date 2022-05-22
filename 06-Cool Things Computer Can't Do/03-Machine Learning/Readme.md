@@ -1,25 +1,3 @@
-## Data Analysis
-
-- Data analysis is a process of inspecting, cleansing, transforming, and modelling data with the goal of discovering useful information, informing conclusions, and supporting decision-making.
-
-- Data Analysis Process
-
-  - Asking Questions
-  - Data Wrangling/Preprocessing
-  - Exploratory Data Analysis
-  - Drawing Conclusions
-  - Communicating Results
-
-- Data Preprocessing Tools
-
-  - Importing the dataset
-  - Taking care of missing data
-  - Encoding categorical data
-    - Encoding the Independent Variable
-    - Encoding the Dependent Variable
-  - Splitting the dataset into the Training set and Test set
-  - Feature Scaling
-
 ## What is ML
 
 - ML is the process of training a piece of software, called a **model**, to make useful predictions using a data set. This predictive model can then serve up predictions about previously unseen data.
@@ -144,7 +122,7 @@
 - By convention in machine learning, you'll write the equation for a model slightly differently:
   ![Linear Regression](./img/linear-regression.png "Linear Regression")
   - A more sophisticated model might rely on multiple features, each having a separate weight (w1, w2, etc.).
-    - For example, a model that relies on three features might look as follows:
+    - For example, a model that relies on three features might look as follows  
       ![Linear Regression](./img/linear-regression-more-feature.png "Linear Regression")
 - An intercept or offset from an originis called **bias**.
   - Bias (also known as the bias term) is referred to as b or w0 in machine learning models.

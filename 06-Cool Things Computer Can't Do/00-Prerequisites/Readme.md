@@ -19,6 +19,8 @@
 ## Pandas
 
 - Pandas is a library written for the Python programming language for data manipulation and analysis. In particular, it offers data structures and operations for manipulating numerical tables and time series.
+- It is a popular Python library used for working in tabular data (similar to the data stored in a spreadsheet).
+- Pandas provides helper functions to read data from various file formats like CSV, Excel spreadsheets, HTML tables, JSON, SQL, and more.
 - Unlike Numpy where we have only 1 DS (nd array), in pandas we have a lot of DS (eg. Dataframes, Series).
 - Dataframes are tablular data and series is a row or column selected from the table.
 - Dataframes have rows and columns and series have index and data.

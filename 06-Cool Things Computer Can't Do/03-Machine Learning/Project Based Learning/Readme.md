@@ -1,4 +1,4 @@
-### How to Approach a Machine Learning Problem
+## **How to Approach a Machine Learning Problem**
 
 Here's a strategy you can apply to approach any machine learning problem:
 
@@ -8,3 +8,8 @@ Here's a strategy you can apply to approach any machine learning problem:
 4. Set aside a test set (using a fraction of the training set)
 5. Train the model
 6. Make predictions on the test set and compute the loss
+
+## **About Projects**
+
+1. Sonar Rock or Mine Prediction: **<u>Logistic Regression</u>**
+1.

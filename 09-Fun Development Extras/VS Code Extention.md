@@ -1,10 +1,10 @@
-## Yoeman, The Scaffolding tool
+# Yoeman, The Scaffolding tool
 
 - Use **yoeman** to create a Project, yoeman is a scaffolding tool (like Create React App) that creates a boilerplate project for you to start creating extentions.
 
 - **vscode** is an API provided to us which help us to manipulate vscode from code, we can registercommand, executecommand and can create different views for our extention. It is the only way to communicate with vscode.
 
-## VSCODE Extention creation
+# VSCODE Extention creation
 
 - Registering a command in our extention:
 
@@ -26,18 +26,18 @@
 
 - Both the activate and deactive are only going to be called once when the Extention loads and disabled respectively, so we can do things which we want to happen at the start(initilizations) or end of the API once, like loading any json data from the network(start) or cleaning the memory(end).
 
-## How things work
+# How things work
 
 - Creating a VS code extention is just like creating any other app, we can use anything that spits out js, everything we have is a webview, we might have a backend or we can have an API to fetch the data, sometimes we might need authorization and authentication as well.
 - The src will have the main files where we register commands and views for our extentions, as vscode is written in electron.js so it's all html, css, js.
 - We will create a different folder for our webviews and can use anything that is going to create js file at the end. TS, sveltte etc.
 - A folder called media that is going to contain all our assets like css files, images etc.
 
-## Sharing information
+# Sharing information
 
 - vscode API is not available in webviews by default so we need a way to send information from VSC to webviews and vice versa.
 - To enable the vscode api in webview, basically HTML, then we need to store `acquireVsCodeApi()` in a variable that help us to send message from webview to VSC.
 
-## Resource
+# Resource
 
 - https://github.com/microsoft/vscode-extension-samples, this is the source from where one can learn stuffs about vscode entention creation.

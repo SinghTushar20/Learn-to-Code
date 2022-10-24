@@ -1,11 +1,11 @@
-## 2-Pointer Method or Sliding Window Technique
+# 2-Pointer Method or Sliding Window Technique
 
-## Binary Search
+# Binary Search
 
-## Binary Exponentiation
+# Binary Exponentiation
 
-## Modular Arithematic
+# Modular Arithematic
 
-## Fermat's Little Theroem
+# Fermat's Little Theroem
 
-## Modular Exponentiation
+# Modular Exponentiation

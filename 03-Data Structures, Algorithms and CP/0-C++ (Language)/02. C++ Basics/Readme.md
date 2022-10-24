@@ -154,6 +154,8 @@
 - NOTE: If we assign a float value to a char then float value is converted into character and this is done implicitly that's why it is called `type coercion`.
 - To use the number in scientific notation use e followed by the raised power. eg. 12e2 will be depicted as 1200, 12e-1 as 1.2 etc.
 
+**`NOTE: Declaration in C/C++ are read in a spiral clockwise manner, https://c-faq.com/decl/spiral.anderson.html.`**
+
 ## Initialization
 
 - Initialization can be used to give a variable a value at the point of creation. C++ supports 3 types of initialization: **copy initialization**, **direct initialization**, and **uniform initialization** (also called list initialization or brace initialization).

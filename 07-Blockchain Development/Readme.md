@@ -17,6 +17,13 @@
   - Blocks have certain storage capacities and, when filled, are closed and linked to the previously filled block, forming a chain of data known as the blockchain.
   - All new information after that freshly added block is then again compiled/grouped into a new block which will then also be added to the chain.
 
+- A blockchain is a globally shared, transactional database.
+
+  - This means that everyone can read entries in the database just by participating in the network.
+  - If you want to change something in the database, you have to create a so-called **transaction** which has to be accepted by all others.
+  - The word transaction implies that the change you want to make is either not done at all or completely applied.
+  - While your transaction is being applied to the database, no other transaction can alter it.
+
 - **Smart contract** is a self-executing set of instructions that is executed without a third party intermediary.
 
   - Smart contracts are a set of instructions which when placed on a blockchain are self-executing pieces of code not run by any centralized intermediary.
@@ -128,6 +135,10 @@
 - Every Blockchain client like bitcoin, ethereum etc give their miners a expensive computational problem to solve (like find a hash that starts with 4 zeros), the miner that finds the hash first will be given bonus. The hash is calculated with Data, Block number, Nonce, Previous block hash. Nonce is what the miner finds.
 
   - **Mining** is the process of finding the solution of the blockchain problem. Nodes are paid for mining blocks.
+
+- Transactions are not guaranteed to be included in the next block or any specific future block, since it is not up to the submitter of a transaction, but up to the miners to determine in which block the transaction is included.
+
+- If you want to schedule future calls of your contract, you can use a smart contract automation tool or an oracle service.
 
 - Blocks in blockchain contains 3 main thing block number, nonce, data, timestamp, hash, and previous hash.
 

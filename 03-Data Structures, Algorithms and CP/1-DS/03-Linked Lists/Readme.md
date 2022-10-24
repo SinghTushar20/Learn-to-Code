@@ -7,7 +7,7 @@
 - **Memory Efficient Doubly Linked List[XOR Linked List]**
 - **Circular Linked List**
 
-## Compatitors
+## Competitors
 
 ![Linked List VS Array VS Dynamic Array](.././images/ll-arr-darr.png "Linked List VS Array VS Dynamic Array")
 

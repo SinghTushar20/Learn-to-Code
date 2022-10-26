@@ -1,3 +1,9 @@
+Since the introduction of Go in 2009, there have been several changes in how Go developers organize their code and their dependencies. Because of this churn, there’s lots of conflicting advice, and most of it is obsolete. For modern Go development, the rule is simple: **you are free to organize your projects as you see fit**.
+
+Out of the box, Go ships with many development tools. You access these tools via the go command.
+
+- They include a compiler, code formatter, linter, dependency manager, test runner, and more.
+
 # Packages
 
 Every Go program is made up of packages.

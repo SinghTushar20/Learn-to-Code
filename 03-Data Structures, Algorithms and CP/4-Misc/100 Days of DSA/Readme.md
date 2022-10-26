@@ -6,17 +6,73 @@
 
 # Day 4
 
-# Day 5
+# Day 5 Mathematics & Number Theory Algorithms 1
 
-# Day 6
+Factorial of a Number
 
-# Day 7
+Trailing Zeros of a Factorial
 
-# Day 8
+Palindrome Numbers
 
-# Day 9
+Reverse a Number
 
-# Day 10
+Armstrong Numbers
+
+# Day 6 Mathematics & Number Theory Algorithms 2
+
+Prime Number
+
+Sieve of Eratosthenes
+
+Euclid GCD
+
+# Day 7 Mathematics & Number Theory Algorithms 34
+
+Modulo Arithematics
+
+Binary Exponentiation / Fast Power
+
+Compute answer modulo 1000000007
+
+Compute (pow(a,b) % (pow(10, 9) + 7))
+
+NOTE: pow(10, 9) + 7 is a prime number and is greater than limit of int.
+
+Big Integer
+
+Catalan Number
+
+Pegion Hole Principle
+
+Inclusion-Exclusion
+
+# Day 8 Recursion in 3 steps
+
+Find the relation between problem and subproblem
+
+Generalise the Relation
+
+Find the Basecase
+
+Don't worry how the subproblem would work (Recursive leap of faith).
+
+Proof of why reccursive function gives solution can be done using Principle of mathematical induction.
+
+# Day 9 Reccursion Problem
+
+Number of ways in an nxm matrix to get to the bottom
+
+Josephus problem
+
+# Day 10 Reccursion Problem
+
+Palindrome String
+
+Reverse a String
+
+Print the Powerset (set with all the subsequences) of a string
+
+Print all the permutations of a string
 
 # Day 11
 

@@ -86,9 +86,21 @@ Print all the permutations of a string
 
 # Day 16
 
-# Day 17
+# Day 17 Bubble Sort Algorithm
 
-# Day 18
+In this sorting algorithm with every pass the largest element bubbles up to the top.
+
+Time Complexity: O(n^2)
+
+Space Complexity: O(n)
+
+This can further be optimized using a flag.
+
+# Day 18 Insertion Sort Algorithm
+
+In this sorting algorithm with every pass the elements till that index will be sorted.
+
+Consider it as improved bubble sort where you don't just compare two adjacent integers but keep comparing it to left adjacent until it is no longer shortest.
 
 # Day 19
 

@@ -1,6 +1,6 @@
 ## Credits
 
-- These are notes and my understanding of Blockchain and Blockchain programming using python from the Patrick Collins' freecodecamp course.
+- These are notes and my understanding of Blockchain and Blockchain programming using JS from the Patrick Collins' freecodecamp course.
 
 ## What is Blockchain
 

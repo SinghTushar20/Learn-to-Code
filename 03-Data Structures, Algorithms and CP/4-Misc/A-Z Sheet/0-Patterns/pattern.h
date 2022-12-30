@@ -23,3 +23,4 @@ extern int pattern19(int);
 extern int pattern20(int);
 extern int pattern21(int);
 extern int pattern22(int);
+extern int pattern23(int);

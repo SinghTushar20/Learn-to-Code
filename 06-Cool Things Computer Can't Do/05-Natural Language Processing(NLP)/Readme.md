@@ -2,8 +2,11 @@
 
 Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence **concerned with the interactions between computers and human language**, in particular how to program computers to process and analyze large amounts of natural language data.
 
-- A natural language or ordinary language is any language that has evolved naturally in humans through use and repetition without conscious planning or premeditation.
-- Natural languages can take different forms, such as speech or signing.
+A natural language or ordinary language is any language that has evolved naturally in humans through use and repetition without conscious planning or premeditation.
+
+Natural languages can take different forms, such as speech or signing.
+
+## Application of NLP
 
 Real World Applications of NLP:
 
@@ -29,24 +32,31 @@ Common NLP task:
 - Text Parsing
 - Speech to Text
 
-Approaches to NLP:
+## Approaches to NLP
 
-- Heuristic Methods
-  - Regular Expressions
-  - Wordnet
-  - Open Mind Common Sense
-- Machine Learning Based Methods
-  - Naive Bayes
-  - Logistic Regression
-  - SVM
-  - LDA
-  - Hidden Markov Models
-- Deep Learning Based Methods
-  - RNN
-  - LSTM
-  - GRU/CNN
-  - Transformers
-  - Autoencoders
+Heuristic Methods
+
+- Regular Expressions
+- Wordnet
+- Open Mind Common Sense
+
+Machine Learning Based Methods
+
+- Naive Bayes
+- Logistic Regression
+- SVM
+- LDA
+- Hidden Markov Models
+
+Deep Learning Based Methods
+
+- RNN
+- LSTM
+- GRU/CNN
+- Transformers
+- Autoencoders
+
+## Challenges in NLP
 
 Challenges in natural language processing frequently involve speech recognition, natural language understanding, and natural language generation due to:
 

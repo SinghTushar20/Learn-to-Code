@@ -1,6 +1,8 @@
 .vscode
 .obsidian
 /Handbooks
-**/node_modules
+node_modules
 /Interview_Notes
 *.exe
+venv
+__pycache__

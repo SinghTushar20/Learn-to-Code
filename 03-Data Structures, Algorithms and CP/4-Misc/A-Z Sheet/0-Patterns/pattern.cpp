@@ -383,3 +383,37 @@ int pattern22(int n)
     }
     return 1;
 }
+
+
+/**
+ * The pattern should look like this for let's say n = 5
+ * 
+ * E                 E 
+ * D E             E D
+ * C D E         E D C
+ * B C D E     E D C B
+ * A B C D E E D C B A
+ *
+ */
+int pattern23(int n)
+{
+    for(int i=1; i<=n; i++) {
+        char c = 65+n-1;
+        for(int j=n-1; j>=0; j--) {
+            if(n-j <= i) {
+                std::cout<<char(c-i+n-j)<<" ";
+            }else{
+                std::cout<<"  ";
+            }
+        }
+        for(int j=0; j<n; j++) {
+            if(n-j <= i) {
+                std::cout<<char(c-i+n-j)<<" ";
+            }else{
+                std::cout<<"  ";
+            }
+        }
+        std::cout<<std::endl;
+    }
+    return 1;
+}

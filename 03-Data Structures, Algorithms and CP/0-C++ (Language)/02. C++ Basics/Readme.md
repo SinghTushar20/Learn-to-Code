@@ -126,6 +126,10 @@ Size of different data types.
 - Arithemetic operations on characters are done on their ASCII values.
 - char + int gives an int unless specified externally.
 
+## IEEE 754 floating point standard
+
+This is the way a modern computer represents real numbers.
+
 # Declaration VS Defination
 
 Declaration mean informing to the compiler the following information: name of the variable, type of value it holds. i.e., declaration gives details about the properties of a variable for symbol table entry.

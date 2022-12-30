@@ -73,7 +73,7 @@ C and C++ programs consist of one or more source files, each of which contains s
 
 - It is basically a file (.c/.cpp), after it's finished including all of the header files.
 
-## Compiler
+# Compiler
 
 g++ command is a GNU C++ compiler invocation command, which is used for preprocessing, compilation(converting to assembly), assembly(assembly to object file) and linking of source code to generate an executable file.
 
@@ -97,6 +97,20 @@ Compile and link multiple files: When -c flag is used, it invokes the compiler s
   - e.g. cling directly interprets C++ code without compiling.
 
 - To give compiler vendors greater freedom, the C++ standards committee decided not to dictate the implementation of name mangling, exception handling, and other implementation-specific features(remember OpenGL and Khronoss group). The downside of this decision is that object code produced by different compilers is expected to be incompatible.
+
+# Makefiles
+
+Makefile is a program building tool which runs on Unix, Linux, and their flavors. It aids in simplifying building program executables that may need various modules. To determine how the modules need to be compiled or recompiled together, **make** takes the help of user-defined makefiles.
+
+## Motivation
+
+For a large project where we have thousands of source code files, it becomes difficult to maintain the binary builds.
+
+Compiling the source code files can be tiring, especially when you have to include several source files and type the compiling command every time you need to compile. Makefiles are the solution to simplify this task.
+
+Makefiles are special format files that help build and manage the projects automatically. The **make** command allows you to manage large programs or groups of programs.
+
+## Make VS CMake
 
 # How to approch a Problem
 

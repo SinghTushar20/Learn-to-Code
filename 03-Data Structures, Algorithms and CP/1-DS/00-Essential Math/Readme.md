@@ -1,5 +1,7 @@
 # Basic Concepts
 
+## Principle of Mathematical Induction
+
 ## The Peano Axioms
 
 The entire formalization of arithmetic is based on five fundamental axioms, called Peano axioms, which define properties of natural numbers.
@@ -146,3 +148,37 @@ There are some popular integer sequences. Some of them are based on recursive re
 - Multiplication by 1
 - Negative numbers
 - Floating point impression
+
+# Fibonacci Numbers
+
+Ratio of two consequtive fibonacci numbers keeps approaching golden ratio.
+
+- Golden ratio is given by
+
+- A lot of natural things follow golden ratio.
+
+- Look at the visual depiction of golden ratio.
+
+Bidet's Formulla
+
+- Not used that much in computers due to floating point imprecision.
+
+Fibonacci Encoding
+
+- Every integer can be written as the sum of fibonacci numbers without using any fibonacci number more than once like in binary coding.
+
+Matrix Form of Fibonacci Numbers
+
+Cassini's Identity
+
+Addition Rule
+
+For every positive integer m, Fmn is a multiple of Fn.
+
+Two consecutive fibonacci numbers are always co-primes.
+
+GCD(Fm, Fn) = F(GCD(m,n)) given m,n>=1.
+
+If Fm is a multiple of Fn, them m is also a multiple of n.
+
+Pissano's Period

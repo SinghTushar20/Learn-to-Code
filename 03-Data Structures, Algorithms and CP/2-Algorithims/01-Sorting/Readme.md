@@ -320,3 +320,7 @@ There are a lot of other complex sorting algorithms as well.
 2. **Natural selection sort**: Score the list using a fitness function (such as number of items out of order) then copy it but introduce some random swapping of items. Check a random list. If that list has at least the best score so far, reproduce the list but mutate it. If the list does not have the best score so far, delete the list. The list is considered sorted when it has equal fitness to a sorted list.
 
 3. **Adaptation sort**: Inspired by natural selection sort but trimmed down to improve speed and memory usage. Count the number of inversions in the list. Randomly swap two items and check their immediate neighbors to see if it reduces inversions. If it doesn't, then undo the swap. Repeat until there are no inversions.
+
+4. **Stooge sort**:
+
+5. **Bogo sort**:

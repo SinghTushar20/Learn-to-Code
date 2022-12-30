@@ -2,6 +2,25 @@
 
 Graph theory is the mathematical theory of the properties and applications of graphs (networks).
 
+---
+
+One source and One Destination
+
+- Use A\* Search Algorithm (For Unweighted as well as Weighted Graphs).
+
+One Source, All Destination
+
+- Use BFS (For Unweighted Graphs)
+- Use Dijkstra (For Weighted Graphs without negative weights)
+- Use Bellman Ford (For Weighted Graphs with negative weights)
+
+Between every pair of nodes-
+
+- Floyd-Warshall
+- Johnson’s Algorithm
+
+---
+
 ## Types of Graphs
 
 **Undirected Graph**: An undirected graph is a graph in which edges have no orientation. The edge (u, v) is identical to the edge (v, u).

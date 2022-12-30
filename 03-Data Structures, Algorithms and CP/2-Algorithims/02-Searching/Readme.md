@@ -2,6 +2,8 @@
 
 Search algorithms work to retrieve information stored within some data structure, or calculated in the search space of a problem domain, with either discrete or continuous values.
 
+Search algorithms are algorithms designed to search for or retrieve elements from a data structure, where they are stored. They are essential to access desired elements in a data structure and retrieve them when a need arises.
+
 Search algorithms can be classified based on their mechanism into three types of algorithms:
 
 - Linear
@@ -106,6 +108,11 @@ While debugging, the binary search is used to pinpoint the place where the error
 
 Ternary Search
 Fibonacci Search
+BFS & DFS
+
+A vital aspect of search algorithms is Path Finding, which is used to find paths that can be taken to traverse from one point to another, by finding the most optimum route.
+
+- A\* Path Finding Algorithm.
 
 # CASE STUDY: How Google searches one document among Billions of documents quickly?
 
